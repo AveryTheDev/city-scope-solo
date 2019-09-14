@@ -6,5 +6,6 @@ export const fetchCities = async () => {
 
     const cityOptionsList = cityListLinks.map(x => x.name);
 
+    console.log (cityOptionsList);
     return cityOptionsList;
 }
