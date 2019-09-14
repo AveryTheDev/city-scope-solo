@@ -1,0 +1,21 @@
+input {
+    border: 0.5px solid #4F92C2;
+    border-radius: 5px;
+    padding: 2px;
+    margin-top: 14px;
+ 
+    font-family: 'Roboto', sans-serif;;
+    font-size: 14px;
+    line-height: 9px;
+}
+
+::placeholder{  
+    color: #4F92C2;
+}
+
+::-moz-placeholder{  
+    color: #4F92C2;
+}
+::-webkit-input-placeholder{  
+    color: #4F92C2;
+}

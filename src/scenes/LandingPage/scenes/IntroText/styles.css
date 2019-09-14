@@ -1,0 +1,20 @@
+.intro-text > h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    color: #4F7590;
+    border-bottom: 5px solid #4F7590;
+    display: inline-block;
+    margin: 0;
+}
+
+.intro-text > p {
+    margin-top: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.emphasis {
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+}

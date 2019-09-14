@@ -1,0 +1,11 @@
+.background {
+    background-color: #314773;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .background {
+        width: 100%;
+    }
+}
