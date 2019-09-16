@@ -53,7 +53,7 @@ export const getCityBySearchTerm = async city => {
                 return urbanScores;
             }
 
-            else (geoname_id !== "1650527") {
+            else {
                 let urbanScores = await teleport.get("cities/geonameid:" + geoname_id);
                 urbanScores = urbanScores.data["_links"]["city:urban_area"]["href"];
                 
