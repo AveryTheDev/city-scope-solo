@@ -1,6 +1,12 @@
-.clientPanel {
+.client-panel {
+    height: 100vh;
+    overflow: scroll;
     padding: 3rem;
     width: 60%;
+}
+
+.icon-panel {
+    position: fixed;
 }
 
 @media screen and (max-width: 425px) {

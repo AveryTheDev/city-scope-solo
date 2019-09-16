@@ -12,8 +12,7 @@ const IntroText = () => {
           <span className="emphasis">"Explore the globe with one click."</span>
         </p>
         <p>
-          With living info on 266 cities, you’ll be hard pressed to find a place
-          with more relevant info to prospective movers. With living info on 266
+          With living info on 265
           cities, you’ll be hard pressed to find a place with more relevant info
           to prospective movers.
           <br />

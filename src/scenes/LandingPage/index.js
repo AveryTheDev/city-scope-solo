@@ -9,13 +9,13 @@ const LandingPage = () => {
     return ( 
         <>
             <div className="mobile">
-                <BrandImage />
+                <BrandImage className="icon-panel"/>
                 <IntroText />                
                 <CityList />
             </div>
             <div className="desktop">
-                <BrandImage />
-                <div className="clientPanel">
+                <BrandImage className="icon-panel"/>
+                <div className="client-panel">
                     <IntroText />                    
                     <CityList />
                 </div>
