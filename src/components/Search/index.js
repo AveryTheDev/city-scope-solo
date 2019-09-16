@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'; 
-import { citySearch } from '../../services/api/components/CitySearch';
+import { getCityBySearchTerm } from '../../services/api/components/CityFromSearch';
 
 import './styles.css'
 
@@ -8,14 +8,14 @@ const SearchBar = () => {
     const [term, setTerm] = useState('');
 
     const onInputChange = e => {
-        setTerm(...e.target.value);
+        setTerm(e.target.value);
     }
 
     const onTermSubmit = e => {
-        e.preventDefault();
+      e.preventDefault();
 
-        citySearch(term);
-    }
+      getCityBySearchTerm(term);
+    };
 
     return (
       <form onSubmit={onTermSubmit}>

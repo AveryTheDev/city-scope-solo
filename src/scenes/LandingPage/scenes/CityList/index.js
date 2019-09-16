@@ -16,7 +16,7 @@ const CityList = () => {
     let list;
 
     if(cityOptions.length > 0) {
-        list = cityOptions.map((city) => <p id={city.})
+        list = cityOptions.map((city) => <p id={city}>{city}</p>)
     }
 
     return ( 

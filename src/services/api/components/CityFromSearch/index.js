@@ -4,7 +4,7 @@ export const getCityBySearchTerm = async city => {
     
     let searchTerm = city;
 
-    let urbanScores, cityDetails, cityImage, cityName, geoname_id, results;
+    let urbanScores, cityImage, cityName, geoname_id, results;
 
         const getCityNameFromSearchTerm = (searchTerm) => {
             let cityName = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
@@ -16,7 +16,7 @@ export const getCityBySearchTerm = async city => {
             let refinedSearchTerm = searchTerm.toLowerCase().replace(/ /g, "%20");
 
             if (new RegExp("tampa").test(refinedSearchTerm)) {
-            searchTerm = "tampa";
+            refinedSearchTerm = "tampa";
             }
 
             let citySearch = await teleport.get(
@@ -38,7 +38,7 @@ export const getCityBySearchTerm = async city => {
 
         const getCityImageFromUrbanScores = async (urbanScores) => {
             let imageURL = await teleport.get(urbanScores);
-            imageURL = cityDetails.data["_links"]["ua:images"]["href"];
+            imageURL = imageURL.data["_links"]["ua:images"]["href"];
 
             let cityImage = await teleport.get(imageURL);
             cityImage = cityImage.data.photos[0].image.web;
@@ -61,9 +61,9 @@ export const getCityBySearchTerm = async city => {
             }
         };
 
-        geoname_id = getCityIdFromSearchTerm(searchTerm);
-        urbanScores = getCityDetailsFromId(geoname_id);
-        cityImage = getCityImageFromUrbanScores(urbanScores);
+        geoname_id = await getCityIdFromSearchTerm(searchTerm);
+        urbanScores = await getCityDetailsFromId(geoname_id);
+        cityImage = await getCityImageFromUrbanScores(urbanScores);
         cityName = getCityNameFromSearchTerm(searchTerm);
 
         results = {
@@ -73,6 +73,7 @@ export const getCityBySearchTerm = async city => {
           cityName
         };
 
+        console.log(results);
         return results;
 };
 
