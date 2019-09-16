@@ -73,7 +73,6 @@ export const getCityBySearchTerm = async city => {
           cityName
         };
 
-        console.log(results);
         return results;
 };
 
