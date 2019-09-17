@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { fetchCities } from '../../../../services/api/components/CityList'
+
+import { fetchCities } from '../../../../services/api/components/CityList';
+import { getCityBySearchTerm } from '../../../../services/api/components/CityFromSearch';
 
 import './styles.css';
+import City from './City';
 
 const CityList = () => {
     const [ cityOptions, setCityOptions ] = useState([]);
@@ -13,10 +16,16 @@ const CityList = () => {
 
     }, [])
 
+    const searchByTerm = (term) => {
+        const searchTerm = term;
+
+        getCityBySearchTerm(searchTerm);
+    }
+
     let list;
 
     if(cityOptions.length > 0) {
-        list = cityOptions.map((city) => <p id={city}>{city}</p>)
+        list = cityOptions.map((city) => <City city={city} searchByTerm={searchByTerm}/>)
     }
 
     return ( 

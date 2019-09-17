@@ -7,12 +7,21 @@ export const getCityBySearchTerm = async city => {
     let urbanScores, cityImage, cityName, geoname_id, results;
 
         const getCityNameFromSearchTerm = (searchTerm) => {
+            if (typeof searchTerm !== "string") {
+                searchTerm = Object.values(searchTerm).toString();
+            }
+
             let cityName = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
 
             return cityName;
         }
 
         const getCityIdFromSearchTerm = async searchTerm => {
+
+            if(typeof searchTerm !== "string") {
+                searchTerm = (Object.values(searchTerm)).toString();
+            }
+
             let refinedSearchTerm = searchTerm.toLowerCase().replace(/ /g, "%20");
 
             if (new RegExp("tampa").test(refinedSearchTerm)) {
@@ -73,6 +82,7 @@ export const getCityBySearchTerm = async city => {
           cityName
         };
 
+        console.log(results);
         return results;
 };
 
