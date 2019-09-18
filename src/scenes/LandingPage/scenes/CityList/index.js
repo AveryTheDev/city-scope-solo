@@ -5,9 +5,11 @@ import { getCityBySearchTerm } from '../../../../services/api/components/CityFro
 
 import './styles.css';
 import City from './City';
-import { ChosenCityContext } from '../../../../services/context/ChosenCityContext';
 
-const CityList = () => {
+import { ChosenCityContext } from '../../../../services/context/ChosenCityContext';
+import {withRouter} from 'react-router-dom'
+
+const CityList = withRouter(({history}) => {
     const [ cityOptions, setCityOptions ] = useState([]);
     const { setChosenCity } = useContext(ChosenCityContext)
 
@@ -23,9 +25,10 @@ const CityList = () => {
 
         const setCity = async (searchTerm) => {
             setChosenCity(await getCityBySearchTerm(searchTerm));
+            history.replace('/citypage');
         };
 
-        setCity(searchTerm);
+        setCity(searchTerm);        
     }
 
     let list;
@@ -39,6 +42,6 @@ const CityList = () => {
             {list} 
         </div>
      );
-}
+})
  
 export default CityList;

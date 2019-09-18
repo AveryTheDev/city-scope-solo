@@ -1,9 +1,16 @@
-import React from 'react';
-import LandingPage from './scenes/LandingPage';
-import ChosenCityContextProvider from './services/context/ChosenCityContext';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./services/Router";
+import ChosenCityContextProvider from "./services/context/ChosenCityContext";
 
 const App = () => {
-  return <ChosenCityContextProvider><LandingPage /></ChosenCityContextProvider> 
-}
- 
+  return (
+    <BrowserRouter>
+      <ChosenCityContextProvider>
+        <Router />
+      </ChosenCityContextProvider>
+    </BrowserRouter>
+  );
+};
+
 export default App;

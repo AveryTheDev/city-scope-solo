@@ -4,7 +4,7 @@ export const getCityBySearchTerm = async city => {
     
     let searchTerm = city;
 
-    let urbanScores, cityImage, cityName, geoname_id, results;
+    let urbanScores, cityImage, cityName, geoname_id, isChosen, results;
 
         const getCityNameFromSearchTerm = (searchTerm) => {
             if (typeof searchTerm !== "string") {
@@ -79,7 +79,8 @@ export const getCityBySearchTerm = async city => {
           urbanScores,
           geoname_id,
           cityImage,
-          cityName
+          cityName,
+          isChosen: true
         };
 
         return results;

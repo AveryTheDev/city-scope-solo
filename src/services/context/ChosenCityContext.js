@@ -7,8 +7,10 @@ const ChosenCityContextProvider = props => {
         urbanScores: '',
         geoname_id: 0,
         cityImage: '',
-        cityName: ''
+        cityName: '',
+        isChosen: false
     })
+
 
     return ( 
         <ChosenCityContext.Provider value={{chosenCity, setChosenCity}}>

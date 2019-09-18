@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from './node_modules/react';
 import { ChosenCityContext } from '../../../../../services/context/ChosenCityContext';
 
 import { getClimate } from '../../../../../services/api/components/categories/Climate';
