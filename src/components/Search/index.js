@@ -4,7 +4,9 @@ import { getCityBySearchTerm } from '../../services/api/components/CityFromSearc
 import './styles.css'
 import { ChosenCityContext } from '../../services/context/ChosenCityContext';
 
-const SearchBar = () => {
+import { withRouter } from 'react-router-dom';
+
+const SearchBar = withRouter(({history}) => {
 
     const [term, setTerm] = useState('');
     const { setChosenCity } = useContext(ChosenCityContext);
@@ -18,6 +20,7 @@ const SearchBar = () => {
 
       const setCity = async term => {
         setChosenCity(await getCityBySearchTerm(term));
+        history.replace("/citypage");
       };
 
       setCity(term);
@@ -32,6 +35,6 @@ const SearchBar = () => {
         />
       </form>
     ); 
-}
+})
  
 export default SearchBar;
