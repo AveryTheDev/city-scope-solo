@@ -34,7 +34,9 @@ const CityList = withRouter(({history}) => {
     let list;
 
     if(cityOptions.length > 0) {
-        list = cityOptions.map((city) => <City city={city} searchByTerm={searchByTerm}/>)
+        list = cityOptions.map((city, index) => (
+          <City city={city} key={index} searchByTerm={searchByTerm} />
+        ));
     }
 
     return ( 
