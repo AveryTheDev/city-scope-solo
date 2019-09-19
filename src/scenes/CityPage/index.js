@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { ChosenCityContext } from '../../services/context/ChosenCityContext';
-import {Link} from 'react-router-dom';
+
 import NavBar from '../../components/NavBar';
 import Categories from '../CityPage/scenes/Categories';
+import CityDisplay from './scenes/CityDisplay';
 
 const CityPage = () => {
 
@@ -12,7 +13,10 @@ const CityPage = () => {
         return ( 
             <div>
                 <NavBar />
-                <Categories/>
+                <div className="city-content">
+                    <Categories/> 
+                    <CityDisplay/>
+                </div>
             </div>
         );
     }
