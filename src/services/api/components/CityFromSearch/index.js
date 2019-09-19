@@ -4,25 +4,43 @@ export const getCityBySearchTerm = async city => {
     
     let searchTerm = city;
 
-    let urbanScores, cityImage, cityName, geoname_id, isChosen, results;
+    let urbanScores, cityImage, cityName, geoname_id, results;
 
         const getCityNameFromSearchTerm = (searchTerm) => {
             if (typeof searchTerm !== "string") {
                 searchTerm = Object.values(searchTerm).toString();
             }
 
-            let cityName = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1);
+            cityName  = searchTerm
+              .toLowerCase()
+              .split(" ")
+              .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+              .join(" ");;
+
+            if (
+              cityName === "Washington, D.c." ||
+              cityName === "Washington D.c." ||
+              cityName === "Washington Dc" ||
+              cityName === "Washington, D.c."
+            ) {
+              cityName = "Washington, D.C.";
+              return cityName;
+            }
 
             return cityName;
         }
 
         const getCityIdFromSearchTerm = async searchTerm => {
-
             if(typeof searchTerm !== "string") {
                 searchTerm = (Object.values(searchTerm)).toString();
             }
 
+
+
             let refinedSearchTerm = searchTerm.toLowerCase().replace(/ /g, "%20");
+            if (refinedSearchTerm.includes("minneapolis-saint") || refinedSearchTerm.includes("minneapolis")) {
+              return geoname_id = 5045360;
+            } 
 
             if (new RegExp("tampa").test(refinedSearchTerm)) {
             refinedSearchTerm = "tampa";
