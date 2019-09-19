@@ -3,10 +3,16 @@
     height: 5rem;
     background-color: #4F7590;
     display: flex;
-    align-items:center;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.nav-bar > h3 {
+.nav-icon-title {
+    display: flex;
+    align-items:center;    
+}
+
+.nav-icon-title > h3 {
     font-family: "Oswald", sans-serif;
     color: white;
     text-decoration: underline;
@@ -20,4 +26,6 @@
     margin-right: 1rem;
 }
 
-
+.nav-search-bar {
+    margin-right: 2rem;
+}
