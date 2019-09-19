@@ -27,6 +27,11 @@ export const getCityBySearchTerm = async city => {
               return cityName;
             }
 
+            if (cityName === "Minneapolis-saint Paul") {
+                cityName="Minneapolis-Saint Paul";
+                return cityName;
+            }
+
             return cityName;
         }
 
@@ -34,8 +39,6 @@ export const getCityBySearchTerm = async city => {
             if(typeof searchTerm !== "string") {
                 searchTerm = (Object.values(searchTerm)).toString();
             }
-
-
 
             let refinedSearchTerm = searchTerm.toLowerCase().replace(/ /g, "%20");
             if (refinedSearchTerm.includes("minneapolis-saint") || refinedSearchTerm.includes("minneapolis")) {
