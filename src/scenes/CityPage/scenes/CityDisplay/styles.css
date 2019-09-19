@@ -1,0 +1,8 @@
+.city-display {
+    width: 50%;
+}
+
+.city-display > img {
+    width: 100%;
+    height: 45vh;
+}

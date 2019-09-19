@@ -5,17 +5,19 @@ import NavBar from '../../components/NavBar';
 import Categories from '../CityPage/scenes/Categories';
 import CityDisplay from './scenes/CityDisplay';
 
+import './styles.css';
+
 const CityPage = () => {
 
     const {chosenCity, setChosenCity} = useContext(ChosenCityContext);
 
     if(chosenCity.isChosen) {
         return ( 
-            <div>
+            <div className="city-page">
                 <NavBar />
                 <div className="city-content">
+                    <CityDisplay/>                    
                     <Categories/> 
-                    <CityDisplay/>
                 </div>
             </div>
         );

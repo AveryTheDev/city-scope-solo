@@ -1,8 +1,9 @@
 import React from 'react';
+import './styles.css';
 
 const Categories = () => {
     return ( 
-        <div>
+        <div className="categories">
             Categories
         </div>
      );
