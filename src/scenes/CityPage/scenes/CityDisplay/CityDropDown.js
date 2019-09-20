@@ -36,9 +36,9 @@ const CityDropDown = () => {
   }
 
   return (
-    <Dropdown>
-      <DropdownButton title={chosenCity.cityName}>
-        <Dropdown.Item>{list}</Dropdown.Item>
+    <Dropdown variant="custom">
+      <DropdownButton variant="city-name" title={chosenCity.cityName}>
+        <Dropdown.Item className="drop-down-menu">{list}</Dropdown.Item>
       </DropdownButton>
     </Dropdown>
   );

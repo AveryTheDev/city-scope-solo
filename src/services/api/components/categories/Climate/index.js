@@ -1,7 +1,10 @@
 import teleport from '../../../teleport';
 
 export const getClimate = async urbanScores => {
-    const city = urbanScores;
+            debugger;
+            const city = urbanScores;
+
+            console.log(city);
 
             let cityClimate, success, tempSystem, climateType, avgLow, avgHigh;
             let climate = {};
@@ -70,6 +73,8 @@ export const getClimate = async urbanScores => {
                   tempSystem,
                   success
               }
+
+              console.log(climate);
 
               return climate;
             }

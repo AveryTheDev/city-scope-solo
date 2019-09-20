@@ -1,3 +1,29 @@
+.btn-city-name {
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    padding: 1rem;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+}
+
+.dropdown-menu::-webkit-scrollbar { width: 0 !important}
+.dropdown-menu {overflow: -moz-scrollbars-none}
+.dropdown-menu {-ms-overflow-style: none}
+
+.dropdown-menu {
+    overflow:auto;
+    height: 10rem;
+    background-color: rgba(0,0,0,0.5);
+    padding: 1rem;
+}
+
+.drop-down-menu {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
 .city-display {
     width: 60%;
     height: 100vh;
@@ -17,8 +43,8 @@
 .menu-container {
     position: absolute;
     z-index: 2;
-    top: 50%;
-    left: 45%;
+    top: 40%;
+    left: 35%;
 }
 
 .city-display > .description-text, .city-display > h1 {

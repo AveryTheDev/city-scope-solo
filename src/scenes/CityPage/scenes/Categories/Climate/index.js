@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from './node_modules/react';
+import React, { useEffect, useContext } from 'react';
 import { ChosenCityContext } from '../../../../../services/context/ChosenCityContext';
 
 import { getClimate } from '../../../../../services/api/components/categories/Climate';
@@ -7,11 +7,11 @@ import { ClimateContext } from '../../../../../services/context/categories/Clima
 const Climate = () => {
 
     const { chosenCity } = useContext(ChosenCityContext);
-    const { climate, setClimate, setMetric} = useState(ClimateContext);
+    const { climate, setClimate, setMetric} = useContext(ClimateContext);
 
         useEffect(() => {
           (async function() {
-            setClimate(await getClimate(chosenCity));
+            setClimate(await getClimate(chosenCity.urbanScores));
           })();
         }, []);
 
