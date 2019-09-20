@@ -62,11 +62,15 @@ const Climate = () => {
       if(climate) {
         return (
           <div className="climate-info">
-            <h1>Climate</h1>
-            <button onClick={() => {setMetric(scale, climate.avgHigh, climate.avgLow)}}>Scale: {scale}</button>
-            <p>Average High: {climate.avgHigh} {scale}</p>
-            <p>Average Low: {climate.avgLow} {scale}</p>
-            <p>{climate.climateType}</p>
+            <div className="heading">
+              <h1>Climate</h1>
+              <button onClick={() => {setMetric(scale, climate.avgHigh, climate.avgLow)}}>Scale: {scale}</button>              
+            </div>
+              <p>{climate.climateType}</p>        
+            <div className="climate-data">
+              <p>Average High: {climate.avgHigh} {scale}</p>
+              <p>Average Low: {climate.avgLow} {scale}</p>              
+            </div>    
           </div>
         );
       }
