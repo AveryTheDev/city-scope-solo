@@ -1,12 +1,9 @@
 import teleport from '../../../teleport';
 
 export const getClimate = async urbanScores => {
-            debugger;
             const city = urbanScores;
 
-            console.log(city);
-
-            let cityClimate, success, tempSystem, climateType, avgLow, avgHigh;
+            let cityClimate, success, climateType, avgLow, avgHigh;
             let climate = {};
 
             const checkForClimate = async city => {
@@ -22,7 +19,7 @@ export const getClimate = async urbanScores => {
                 return cityClimate;
             }
 
-            const getClimateType = cityClimate => {
+            const getClimateType = async cityClimate => {
               let checkType = cityClimate.data.find(
                 x => x.id === "WEATHER-TYPE"
               );
@@ -31,7 +28,7 @@ export const getClimate = async urbanScores => {
               }
             };
 
-            const getHighTemp = cityClimate => {
+            const getHighTemp = async cityClimate => {
               let checkHighTemp = cityClimate.data.find(
                 x => x.id === "WEATHER-AVERAGE-HIGH"
               );
@@ -43,7 +40,7 @@ export const getClimate = async urbanScores => {
               }
             };
 
-            const getLowTemp = cityClimate => {
+            const getLowTemp = async cityClimate => {
               let checkLowTemp = cityClimate.data.find(
                 x => x.id === "WEATHER-AVERAGE-LOW"
               );
@@ -55,26 +52,22 @@ export const getClimate = async urbanScores => {
               }
             };
 
-            cityClimate = (async function () { await checkForClimate(city)})();
+            cityClimate =  await checkForClimate(city);
 
             if (cityClimate) {
                 
-              climateType = (async function() { await getClimateType(cityClimate)})();
-              avgLow = (async function() { await getLowTemp(cityClimate)})();
-              avgHigh = (async function() {await getHighTemp(cityClimate)})();
+              climateType =  await getClimateType(cityClimate);
+              avgLow =  await getLowTemp(cityClimate);
+              avgHigh = await getHighTemp(cityClimate);
 
               success = true;
-              tempSystem = "metric";
 
               climate = {
                   climateType,
                   avgHigh,
                   avgLow,
-                  tempSystem,
                   success
               }
-
-              console.log(climate);
 
               return climate;
             }
@@ -84,7 +77,6 @@ export const getClimate = async urbanScores => {
                     climateType: "N/A",
                     avgHigh: "N/A",
                     avgLow: "N/A",
-                    tempSystem: "",
                     success: false
                 }
 

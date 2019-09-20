@@ -9,7 +9,7 @@ import './styles.css';
 
 const CityPage = () => {
 
-    const {chosenCity, setChosenCity} = useContext(ChosenCityContext);
+    const {chosenCity} = useContext(ChosenCityContext);
 
     if(chosenCity.isChosen) {
         return ( 

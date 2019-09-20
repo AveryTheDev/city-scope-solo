@@ -14,7 +14,7 @@ const CityDisplay = () => {
       (async function() {
           setDescription(await fetchCityDescription(chosenCity.urbanScores));
       })();
-    }, []);
+    }, [chosenCity.urbanScores]);
 
     return ( 
         <div className="city-display">

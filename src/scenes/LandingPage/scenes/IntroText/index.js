@@ -22,7 +22,7 @@ const IntroText = () => {
         </p>
         <SearchBar />
         <p>
-          Not quite sure where to move yet? Check out one of our 266 cities
+          Not quite sure where to move yet? Check out one of our 265 cities
           below!
         </p>
       </div>
