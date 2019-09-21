@@ -16,8 +16,10 @@ const CityPage = () => {
             <div className="city-page">
                 <NavBar />
                 <div className="city-content">
-                    <CityDisplay/>                    
-                    <Categories/> 
+                    <CityDisplay/>     
+                    <div className ="category-panel">
+                        <Categories/>                    
+                    </div>               
                 </div>
             </div>
         );
