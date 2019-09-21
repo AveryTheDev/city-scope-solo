@@ -8,7 +8,5 @@ export const fetchCityDescription = async (city_urbanScores) => {
     const urbanSummaryPage = await teleport.get(urbanInfoURL);
     const urbanSummary = urbanSummaryPage.data["summary"];
 
-    console.log(urbanSummary);
-
     return urbanSummary;
 }
