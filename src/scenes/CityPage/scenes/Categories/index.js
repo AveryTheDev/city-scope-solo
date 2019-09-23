@@ -3,13 +3,15 @@ import './styles.css';
 import Climate from './Climate';
 import LifeQuality from './LifeQuality';
 import Education from './Education';
+import Housing from './CostOfLiving/Housing';
 
 const Categories = () => {
     return ( 
         <div className="categories">
             <LifeQuality />              
             <Climate />    
-            <Education />         
+            <Education />       
+            <Housing />  
         </div>
      );
 }
