@@ -7,7 +7,7 @@ import { fetchHousing } from "../../../../../../services/api/components/categori
 const Housing = () => {
      const { chosenCity } = useContext(ChosenCityContext);
      const [ housing, setHousing ] = useState({
-        small: 0, medium: 0, large: 0
+        small: '', medium: '', large: ''
      });
 
      useEffect (() => {
