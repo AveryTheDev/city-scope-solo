@@ -3,7 +3,7 @@ import './styles.css';
 import Climate from './Climate';
 import LifeQuality from './LifeQuality';
 import Education from './Education';
-import Housing from './CostOfLiving/Housing';
+import CostOfLiving from './CostOfLiving';
 
 const Categories = () => {
     return ( 
@@ -11,7 +11,7 @@ const Categories = () => {
             <LifeQuality />              
             <Climate />    
             <Education />       
-            <Housing />  
+            <CostOfLiving />  
         </div>
      );
 }
