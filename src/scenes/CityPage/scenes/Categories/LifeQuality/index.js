@@ -23,7 +23,7 @@ const LifeQuality = () => {
         <>
           <h1>Life Quality Scores</h1>
           <div>
-              {scores.map(x => <p style={{ color: x.color}}>{x.name} {x.score}</p>)}
+              {scores.map(x => <p style={{ color: x.color}} key={x.name}>{x.name} {x.score}</p>)}
           </div>
         </>
       );      
