@@ -6,6 +6,7 @@ import Education from './Education';
 import CostOfLiving from './CostOfLiving';
 import Safety from './Safety';
 import Population from './Population';
+import Salary from './Salary';
 
 const Categories = () => {
     return ( 
@@ -13,6 +14,7 @@ const Categories = () => {
             <Population />
             <LifeQuality />              
             <Climate />    
+            <Salary />
             <Education />       
             <CostOfLiving />  
             <Safety />
