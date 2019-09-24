@@ -3,6 +3,9 @@ import teleport from '../../../teleport';
 export const fetchExpenses = async urbanScores => {
     let expenses = [];
 
+    //fetch data functions are not set up to properly handle 
+    //absense of information when executing
+
     const fetchData = async urbanScores => {
           const chosenCity = urbanScores;
 
