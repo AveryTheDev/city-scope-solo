@@ -11,10 +11,7 @@ const LifeQuality = () => {
 
           useEffect(() => {
             (async function() {
-              let results;
-              results = await fetchLifeQualityScores(chosenCity.urbanScores)
-              console.log("results", results)
-              setScores(results);
+              setScores(await fetchLifeQualityScores(chosenCity.urbanScores));
             })();
           }, [chosenCity.urbanScores]);
 
