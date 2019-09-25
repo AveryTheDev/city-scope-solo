@@ -1,10 +1,18 @@
-.btn-city-name {
-    background-color: rgba(0,0,0,0.5);
-    border: none;
-    padding: 1rem;
+
+.dropdown {
+    position: fixed;
+    left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.dropdown-trigger > button{
     color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 3rem;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    padding: 1rem 3rem;
+    border: none;
 }
 
 .dropdown-menu::-webkit-scrollbar { width: 0 !important}
@@ -12,26 +20,29 @@
 .dropdown-menu {-ms-overflow-style: none}
 
 .dropdown-menu {
-    overflow:auto;
-    height: 10rem;
+    height: 8rem;
+    width: 100%;
     background-color: rgba(0,0,0,0.5);
-    padding: 1rem;
+    overflow-y: scroll;
+
 }
 
-.drop-down-menu {
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none;
+.dropdown-content{
     color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
 }
 
 .city-display {
     width: 60%;
     height: 100vh;
     background-color: #1E222F;
+    margin: auto 0;
 }
 
 .img-container {
-    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .img-container > img {
@@ -51,6 +62,15 @@
     font-family: "Oswald", sans-serif;
     color: white;
     margin: auto 2rem;
+}
+
+/* .city-display > .description-text::-webkit-scrollbar { width: 0 !important}
+.city-display > .description-text {overflow: -moz-scrollbars-none}
+.city-display > .description-text {-ms-overflow-style: none} */
+
+.city-display > .description-text {
+    height: 10rem;
+    overflow: hidden;
 }
 
 .city-display > h1 {

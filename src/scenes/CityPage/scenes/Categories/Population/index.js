@@ -22,7 +22,7 @@ const Population = () => {
 
     if(population) {
         return (
-            <div>
+            <div className="population">
                 <h1>Population</h1>
                 <p>{population}</p>                
             </div>

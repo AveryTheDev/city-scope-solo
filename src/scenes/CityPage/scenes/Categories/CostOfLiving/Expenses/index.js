@@ -15,7 +15,11 @@ const Expenses = () => {
     }, [chosenCity.urbanScores])
 
     if(expenses.length > 0) {
-        let results = expenses.map(x => <p key={x.item + x.cost}>Cost of {x.item}: {x.cost}</p>)
+        let results = expenses.map(x => (
+          <p key={x.item + x.cost} className="expenses">
+            Cost of {x.item}: ${x.cost} USD
+          </p>
+        ));
 
         return (
             <div>

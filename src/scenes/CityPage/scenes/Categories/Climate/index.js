@@ -1,4 +1,6 @@
 import './styles.css';
+import cold from '../../../../../assets/Cold.svg';
+import warm from '../../../../../assets/Warm.svg';
 
 import React, { useState, useEffect, useContext } from 'react';
 import { ChosenCityContext } from '../../../../../services/context/ChosenCityContext';
@@ -64,12 +66,16 @@ const Climate = () => {
           <div className="climate-info">
             <div className="heading">
               <h1>Climate</h1>
-              <button onClick={() => {setMetric(scale, climate.avgHigh, climate.avgLow)}}>Scale: {scale}</button>              
+              <button className="metric-button" onClick={() => {setMetric(scale, climate.avgHigh, climate.avgLow)}}>Scale: {scale}</button>              
             </div>
               <p>{climate.climateType}</p>        
             <div className="climate-data">
-              <p>Average High: {climate.avgHigh} {scale}</p>
-              <p>Average Low: {climate.avgLow} {scale}</p>              
+              <div className="temp-row">
+                <img src={warm} alt="sun"/>
+                <p>Average High: {climate.avgHigh} {scale}</p>
+                <img src={cold} alt="snowflake" />
+                <p>Average Low: {climate.avgLow} {scale}</p>      
+              </div>        
             </div>    
           </div>
         );

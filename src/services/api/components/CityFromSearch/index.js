@@ -6,32 +6,12 @@ export const getCityBySearchTerm = async city => {
 
     let urbanScores, cityImage, cityName, geoname_id, results;
 
-        const getCityNameFromSearchTerm = (searchTerm) => {
-            if (typeof searchTerm !== "string") {
-                searchTerm = Object.values(searchTerm).toString();
-            }
+        const getCityName = async (geoname_id) => {
 
-            cityName  = searchTerm
-              .toLowerCase()
-              .split(" ")
-              .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-              .join(" ");;
-
-            if (
-              cityName === "Washington, D.c." ||
-              cityName === "Washington D.c." ||
-              cityName === "Washington Dc" ||
-              cityName === "Washington, D.c."
-            ) {
-              cityName = "Washington, D.C.";
-              return cityName;
-            }
-
-            if (cityName === "Minneapolis-saint Paul") {
-                cityName="Minneapolis-Saint Paul";
-                return cityName;
-            }
-
+            cityName = await teleport.get(
+                              "cities/geonameid:" + geoname_id
+                            );
+            cityName = cityName.data["name"]
             return cityName;
         }
 
@@ -94,7 +74,7 @@ export const getCityBySearchTerm = async city => {
         geoname_id = await getCityIdFromSearchTerm(searchTerm);
         urbanScores = await getCityDetailsFromId(geoname_id);
         cityImage = await getCityImageFromUrbanScores(urbanScores);
-        cityName = getCityNameFromSearchTerm(searchTerm);
+        cityName = await getCityName(geoname_id);
 
         results = {
           urbanScores,

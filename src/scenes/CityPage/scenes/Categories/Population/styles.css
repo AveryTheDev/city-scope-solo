@@ -1,0 +1,17 @@
+.population > p {
+    padding-top: .75rem;
+}
+
+
+.population {
+    background-color: #7D8F9C;
+    width: 100%;
+    padding: 2rem;
+    padding-right: 5rem;
+    color: white;
+    margin-left: -3rem;
+    margin-top: -3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

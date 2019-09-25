@@ -1,6 +1,6 @@
 .client-panel {
     height: 90vh;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 3rem;
     width: 60%;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 
 const CityChoice = ({city, select}) => {
-    return ( 
-        <div onClick={() => select({city})}>
-           {city} 
-        </div>
-     );
+    return (
+      <div onClick={() => select({ city })} className="dropdown-item">
+        {city}
+      </div>
+    );
 }
  
 export default CityChoice;
