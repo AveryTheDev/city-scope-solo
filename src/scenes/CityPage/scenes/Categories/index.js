@@ -16,8 +16,8 @@ const Categories = () => {
             <Climate />    
             <Salary />
             <Education />       
-            <CostOfLiving />  
-            <Safety />
+            <CostOfLiving /> 
+            <Safety />            
         </div>
      );
 }
