@@ -31,6 +31,5 @@ export const formatData = async globalStats => {
         dataPoints.push(coord);
     }
 
-    console.log(dataPoints);
     return dataPoints;
 }
