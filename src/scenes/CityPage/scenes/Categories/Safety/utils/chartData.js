@@ -1,3 +1,5 @@
+import {refineName} from '../../../../../../services/utils'
+
 export const formatData = async globalStats => {
 
     let guns = globalStats.guns;
@@ -27,7 +29,7 @@ export const formatData = async globalStats => {
         let coord = Object.create(coordinate);
         coord.x = valueOfX[i];
         coord.y = valueOfY[i];
-        coord.name = cities[i];
+        coord.name = await refineName(cities[i]);
         dataPoints.push(coord);
     }
 
