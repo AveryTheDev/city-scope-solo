@@ -13,7 +13,6 @@ export const fetchLifeQualityScores = async urbanScores => {
         categories = categories.data["categories"];
 
         const categoriesShown = categories.filter( x => desiredCategories.includes((x.name).toUpperCase()));
-        console.log(categoriesShown);
 
         return categoriesShown;
     }
