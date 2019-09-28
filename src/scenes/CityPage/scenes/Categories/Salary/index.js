@@ -52,12 +52,12 @@ const Salary = () => {
         const job = selectedJob ? selectedJob : "Accountant";
         
         return (
-            <div>
+            <div className="salary-info">
                 <h1>Salary</h1>
-                <p>{job}</p>
-                <p>25th Percentile: ${salaryDetails.low} USD</p>
-                <p>50th Percentile: ${salaryDetails.avg} USD</p>
-                <p>75th Percentile: ${salaryDetails.high} USD</p>
+                <h2>{job}</h2>
+                <p>25th Percentile: <span>${salaryDetails.low} USD</span></p>
+                <p>50th Percentile: <span>${salaryDetails.avg} USD</span></p>
+                <p>75th Percentile: <span>${salaryDetails.high} USD</span></p>
             </div>
         )
     }
