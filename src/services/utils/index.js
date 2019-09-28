@@ -3,28 +3,28 @@ export const refineName = async name => {
     name = Object.values(name).toString();
   }
 
-  let cityName = name.charAt(0).toUpperCase() + name.slice(1);
-  cityName = name
+  let refinedName = name.charAt(0).toUpperCase() + name.slice(1);
+  refinedName = name
     .split("-")
     .map(s => s.charAt(0).toUpperCase() + s.substring(1))
     .join(" ");
 
-    if (cityName === "Minneapolis-saint Paul") {
-    cityName = "Minneapolis-Saint Paul";
-    return cityName;
+    if (refinedName === "Minneapolis-saint Paul") {
+    refinedName = "Minneapolis-Saint Paul";
+    return refinedName;
     }
 
   if (
-    cityName === "Washington, D.c." ||
-    cityName === "Washington D.c." ||
-    cityName === "Washington Dc" ||
-    cityName === "Washington, D.c."
+    refinedName === "Washington, D.c." ||
+    refinedName === "Washington D.c." ||
+    refinedName === "Washington Dc" ||
+    refinedName === "Washington, D.c."
   ) {
-    cityName = "Washington, D.C.";
-    return cityName;
+    refinedName = "Washington, D.C.";
+    return refinedName;
   }
 
-  return cityName;
+  return refinedName;
 };
 
 export const statFormat = async numberValue => {
