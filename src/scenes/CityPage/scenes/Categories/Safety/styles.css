@@ -1,0 +1,9 @@
+.graph > h2 {
+    margin-bottom: -2rem;
+    color: #4F7590;
+}
+
+.graph > p > span {
+    color: #4F7590;
+    font-size: 1.5rem;
+}
