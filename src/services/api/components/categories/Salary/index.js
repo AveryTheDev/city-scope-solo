@@ -36,7 +36,7 @@ export const onProfessionSelect = async (chosenCity, profession = "Accountant") 
     )).data["salaries"];
 
     const jobTitleData = salaryData.find(x => x["job"]["title"] === jobTitle );
-
+    
     const jobTitleSalaryAverages = {
       low: resultWithCommas(
         jobTitleData["salary_percentiles"]["percentile_25"].toFixed(2)

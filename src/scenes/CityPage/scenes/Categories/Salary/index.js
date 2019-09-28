@@ -3,6 +3,7 @@ import "./styles.css";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { ChosenCityContext } from "../../../../../services/context/ChosenCityContext";
 import { fetchProfessions, onProfessionSelect } from "../../../../../services/api/components/categories/Salary";
+import Profession from "./Profession";
 
 const Salary = () => {
 
@@ -23,7 +24,7 @@ const Salary = () => {
             setProfessions(await fetchProfessions(chosenCity.urbanScores));
             setSalaryDetails(await onProfessionSelect(chosenCity.urbanScores));
         })();
-    }, [professions, chosenCity.urbanScores])
+    }, [chosenCity.urbanScores])
 
     useEffect(() => {
     if (menuOpen) {
@@ -46,14 +47,45 @@ const Salary = () => {
         }
     };
 
-    if(salaryDetails) {
-        // const professionOptions = professions.map(x => <p key={x}>{x}</p>);
+    const getWages = job => {
+        const profession = job;
         
-        const job = selectedJob ? selectedJob : "Accountant";
-        
+        const getWagesForJob = async profession => {
+        setSalaryDetails(await onProfessionSelect(chosenCity.urbanScores, profession));
+        }
+
+        setSelectedJob(profession);
+        getWagesForJob(profession)
+        setMenuOpen(false);
+    }
+
+    const job = selectedJob ? selectedJob : "Accountant";
+    let jobList;
+
+    if(professions.length){
+        jobList = professions.map((profession, index) => {
+            return <Profession job={profession} key={professions+index} display={getWages}/>
+        })
+    }
+
+    if(menuOpen) {                
         return (
             <div className="salary-info">
-                <h1>Salary</h1>
+                <div className="salary-top-row">
+                    <h1>Salary</h1>
+                    <div ref={salaryButton} className="salary-dropdown">
+                        <button className="salary-button" onClick = {e => setMenuOpen(!menuOpen)}>
+                            {job}
+                        </button> 
+                    <div className="salary-dropdown-content">
+                            {jobList}                        
+                        </div>
+                    </div>
+
+                </div>
+                <div className="job-">
+
+                </div>
                 <h2>{job}</h2>
                 <p>25th Percentile: <span>${salaryDetails.low} USD</span></p>
                 <p>50th Percentile: <span>${salaryDetails.avg} USD</span></p>
@@ -62,11 +94,29 @@ const Salary = () => {
         )
     }
 
-    return ( 
-        <div>
-            Salary
+    return (
+      <div className="salary-info">
+        <div className="salary-top-row">
+          <h1>Salary</h1>
+          <button
+            className="salary-button"
+            ref={salaryButton}
+            onClick={e => setMenuOpen(!menuOpen)}
+          >
+            {job}
+          </button>
         </div>
-     );
+        <p>
+          25th Percentile: <span>${salaryDetails.low} USD</span>
+        </p>
+        <p>
+          50th Percentile: <span>${salaryDetails.avg} USD</span>
+        </p>
+        <p>
+          75th Percentile: <span>${salaryDetails.high} USD</span>
+        </p>
+      </div>
+    );
 }
  
 export default Salary;
