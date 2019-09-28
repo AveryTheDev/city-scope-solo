@@ -1,4 +1,5 @@
 import teleport from '../../../teleport';
+import {statFormat} from '../../../../utils';
 
 export const fetchHousing = async urbanScores => {
     let chosenCity = urbanScores;
@@ -7,20 +8,6 @@ export const fetchHousing = async urbanScores => {
         small: 0,
         medium: 0,
         large: 0
-    }
-
-    const statFormat = async housingValue => {
-        let x = housingValue;
-
-        const numberWithCommas = (x) => {
-          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-
-        if (!x) return 0;
-        else {
-          x = numberWithCommas(x);  
-          return x;
-        } 
     }
 
     const fetchData = async urbanScores => {

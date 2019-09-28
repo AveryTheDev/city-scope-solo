@@ -3,16 +3,19 @@ import teleport from '../../../teleport';
 export const fetchLifeQualityScores = async urbanScores => {
     const city = urbanScores;
 
-    let categories, scores;
-
     const fetchCategories = async city => {
+        const desiredCategories = ["HOUSING", "COST OF LIVING", "SAFETY", "HEALTHCARE", "EDUCATION", "ECONOMY"];
+
         let cityData = await teleport.get(city);
         cityData = cityData.data["_links"]["ua:scores"]["href"];
 
         let categories = await teleport.get(cityData);
         categories = categories.data["categories"];
 
-        return categories;
+        const categoriesShown = categories.filter( x => desiredCategories.includes((x.name).toUpperCase()));
+        console.log(categoriesShown);
+
+        return categoriesShown;
     }
 
     const fetchCategoryScores = async categories => {
@@ -46,9 +49,7 @@ export const fetchLifeQualityScores = async urbanScores => {
         return scoreData;
     } 
 
-        categories = await fetchCategories(city);
-        scores = await fetchCategoryScores(categories);
-
+        const scores = await fetchCategoryScores(await fetchCategories(city));
 
         return scores;
 }

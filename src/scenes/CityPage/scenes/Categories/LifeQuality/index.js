@@ -4,6 +4,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { ChosenCityContext } from '../../../../../services/context/ChosenCityContext';
 import { fetchLifeQualityScores } from '../../../../../services/api/components/categories/LifeQuality';
 
+import GraphBar from './component/GraphBar';
+
 const LifeQuality = () => {
 
     const { chosenCity } = useContext(ChosenCityContext);
@@ -15,12 +17,14 @@ const LifeQuality = () => {
             })();
           }, [chosenCity.urbanScores]);
 
-    if(scores.length > 0) {
+    if(scores.length) {
+      const bars = scores.map(x => <GraphBar color={x.color} key={x.name} name={x.name} score={x.score}/>)
+      
       return ( 
         <>
-          <h1>Life Quality Scores</h1>
-          <div>
-              {scores.map(x => <p style={{ color: x.color}} key={x.name}>{x.name} {x.score}</p>)}
+          <h1 className="quality-header">Life Quality Scores</h1>
+          <div className="quality-data">
+              {bars}
           </div>
         </>
       );      

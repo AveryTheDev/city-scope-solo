@@ -1,0 +1,44 @@
+.quality-header{
+    margin-top: 2rem;
+    margin-left: -1rem;
+}
+
+.quality-data {
+    margin-bottom: 3rem;
+}
+
+.cityScores {
+    display: flex;
+    align-items: baseline;
+}
+
+.category {
+    color: #4F7590;
+    font-weight: bold;
+    margin: .25rem;
+}
+
+.scoreData {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categoryContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.categoryBar {    
+    position: relative;
+    width: 70%;
+    height: 1rem;
+    background-color: rgb(228, 225, 225);
+}
+
+.shownScore {
+    margin-left: 1rem;
+    font-weight: bold;
+}
