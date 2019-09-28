@@ -26,3 +26,17 @@ export const refineName = async name => {
 
   return cityName;
 };
+
+export const statFormat = async numberValue => {
+        let x = numberValue;
+
+        const numberWithCommas = (x) => {
+          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        if (!x) return 0;
+        else {
+          x = numberWithCommas(x);  
+          return x;
+        } 
+    }
