@@ -4,10 +4,6 @@ body {
     overflow: hidden;
 }
 
-h1, h2 {
-    font-family: "Oswald", sans-serif;
-}
-
-p {
+h1, h2, h3, p {
     font-family: "Oswald", sans-serif;
 }

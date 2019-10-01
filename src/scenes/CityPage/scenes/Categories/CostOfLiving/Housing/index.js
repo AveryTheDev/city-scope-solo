@@ -18,12 +18,12 @@ const Housing = () => {
 
     if(housing.large.length > 0) {
         return (
-            <div>
-                <h1>Housing</h1>
+            <>
+                <h2>Housing</h2>
                 <p>Average Small Apartment Cost: {housing.small} USD</p>
                 <p>Average Medium Apartment Cost: {housing.medium} USD</p>
                 <p>Average Large Apartment Cost: {housing.large} USD</p>                
-            </div>
+            </>
         )
     }
 

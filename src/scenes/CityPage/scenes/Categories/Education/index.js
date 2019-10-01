@@ -22,14 +22,24 @@ const Education = () => {
 
     if(education.meanMathValue > 0) {
         return (
-            <div>
-                <h1>Education</h1>
-                <p>{education.overallRanking}</p>
-                <p>{education.meanMathValue}</p>
-                <p>{education.meanReadingValue}</p>
-                <p>{education.meanScienceValue}</p>
-            </div>
-        )
+          <div className="education">
+            <h1>Education</h1>
+            <h2>What is PISA?</h2>
+              <p className="pisaInfo">
+                PISA is an international testing system given to 15 year olds in
+                participating countries as a way of assessing how countries
+                educational systems compare in terms of quality. This test is
+                given at the age of 15 as many countries allow students at this
+                age to chose whether to continue proceeding with their education
+                at this point.
+              </p>
+            <h3>{chosenCity.cityName}</h3>
+            <p>Overall Ranking: {education.overallRanking} out of 100</p>
+            <p>Average Math PISA Score: {education.meanMathValue}</p>
+            <p>Average Reading PISA Score: {education.meanReadingValue}</p>
+            <p>Average Science PISA Score: {education.meanScienceValue}</p>
+          </div>
+        );
     }
 
     return ( 

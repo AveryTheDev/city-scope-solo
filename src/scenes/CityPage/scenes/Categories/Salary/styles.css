@@ -1,13 +1,45 @@
+.salary-info > h1 {
+    margin-left: -1rem;
+}
+
 .salary-info > h2 {
     color: #4F7590;
+    margin-left: -1rem;
 }
 
 .salary-info > p {
-    margin-left: 1rem;
+    margin-left: -1rem;
 }
 
 .salary-info > p > span {
-    color: rgb(95, 143, 177);
+    color: #5f8fb1;
     font-size: 1.5rem;
     margin-left: .25rem;
+}
+
+.salary-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.salary-button {
+    font-family: "Oswald", sans-serif;
+    background-color: #1E222F;
+    color: white;
+    height: 2rem;
+    padding: .25rem .75rem;
+    margin: .25rem 0 .75rem -1rem;
+    border: none;
+}
+
+
+.salary-dropdown-content {
+    height: 8rem;
+    overflow-y: scroll;
+    margin-top: 1rem;
+}
+
+.job {
+    font-family: "Oswald", sans-serif;
 }

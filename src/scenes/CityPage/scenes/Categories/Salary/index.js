@@ -71,41 +71,34 @@ const Salary = () => {
     if(menuOpen) {                
         return (
             <div className="salary-info">
-                <div className="salary-top-row">
-                    <h1>Salary</h1>
-                    <div ref={salaryButton} className="salary-dropdown">
-                        <button className="salary-button" onClick = {e => setMenuOpen(!menuOpen)}>
-                            {job}
-                        </button> 
-                    <div className="salary-dropdown-content">
-                            {jobList}                        
-                        </div>
+                <h1>Salary</h1>                     
+                <div ref={salaryButton} className="salary-dropdown">
+                    <button className="salary-button" onClick = {e => setMenuOpen(!menuOpen)}>
+                        Select A Profession
+                    </button> 
+                <div className="salary-dropdown-content">
+                        {jobList}                        
                     </div>
-
                 </div>
-                <div className="job-">
-
-                </div>
-                <h2>{job}</h2>
-                <p>25th Percentile: <span>${salaryDetails.low} USD</span></p>
-                <p>50th Percentile: <span>${salaryDetails.avg} USD</span></p>
-                <p>75th Percentile: <span>${salaryDetails.high} USD</span></p>
-            </div>
+            <h2>{job}</h2>
+            <p>25th Percentile: <span>${salaryDetails.low} USD</span></p>
+            <p>50th Percentile: <span>${salaryDetails.avg} USD</span></p>
+            <p>75th Percentile: <span>${salaryDetails.high} USD</span></p>
+        </div>
         )
     }
 
     return (
       <div className="salary-info">
-        <div className="salary-top-row">
           <h1>Salary</h1>
           <button
             className="salary-button"
             ref={salaryButton}
             onClick={e => setMenuOpen(!menuOpen)}
           >
-            {job}
+            Select A Profession
           </button>
-        </div>
+        <h2>{job}</h2>
         <p>
           25th Percentile: <span>${salaryDetails.low} USD</span>
         </p>
