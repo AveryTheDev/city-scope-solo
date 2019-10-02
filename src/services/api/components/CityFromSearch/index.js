@@ -4,14 +4,18 @@ export const getCityBySearchTerm = async city => {
     
     let searchTerm = city;
 
-    let urbanScores, cityImage, cityName, geoname_id, results;
+    let urbanScores, cityImage, cityName, geoname_id, id_data, coord, results;
 
-        const getCityName = async (geoname_id) => {
-
-            cityName = await teleport.get(
+        const fromCityId = async geoname_id => {
+            id_data = await teleport.get(
                               "cities/geonameid:" + geoname_id
-                            );
-            cityName = cityName.data["name"]
+                            ); 
+            return id_data;
+        }
+
+        const getCityName = async id_data => {
+
+            cityName = id_data.data["name"]
             return cityName;
         }
 
@@ -46,7 +50,7 @@ export const getCityBySearchTerm = async city => {
             return geoname_id;
         };
 
-        const getCityImageFromUrbanScores = async (urbanScores) => {
+        const getCityImageFromUrbanScores = async urbanScores => {
             let imageURL = await teleport.get(urbanScores);
             imageURL = imageURL.data["_links"]["ua:images"]["href"];
 
@@ -56,7 +60,7 @@ export const getCityBySearchTerm = async city => {
             return cityImage;
         }
 
-        const getCityDetailsFromId = async geoname_id => {
+        const getCityDetailsFromId = async (geoname_id, id_data) => {
             if (geoname_id === "1650527") {
                 let urbanScores = "https://api.teleport.org/api/urban_areas/slug:bali/";
                 
@@ -64,23 +68,31 @@ export const getCityBySearchTerm = async city => {
             }
 
             else {
-                let urbanScores = await teleport.get("cities/geonameid:" + geoname_id);
-                urbanScores = urbanScores.data["_links"]["city:urban_area"]["href"];
+                let urbanScores = id_data.data["_links"]["city:urban_area"]["href"];
                 
                 return urbanScores;
             }
         };
 
+        const getCoordFromIdData = async id_data => {
+            coord = id_data.data["location"]["latlon"];
+
+            return coord;
+        }
+
         geoname_id = await getCityIdFromSearchTerm(searchTerm);
-        urbanScores = await getCityDetailsFromId(geoname_id);
+        id_data = await fromCityId(geoname_id);
+        urbanScores = await getCityDetailsFromId(geoname_id, id_data); 
         cityImage = await getCityImageFromUrbanScores(urbanScores);
-        cityName = await getCityName(geoname_id);
+        cityName = await getCityName(id_data);
+        coord = await getCoordFromIdData(id_data);
 
         results = {
           urbanScores,
           geoname_id,
           cityImage,
           cityName,
+          coord,
           isChosen: true
         };
 
