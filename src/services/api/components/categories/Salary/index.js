@@ -24,7 +24,7 @@ export const fetchProfessions = async urbanScores => {
 }
 
 
-export const onProfessionSelect = async (chosenCity, profession = "Accountant") => {
+export const onProfessionSelect = async (chosenCity, profession) => {
     const resultWithCommas = x => {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }

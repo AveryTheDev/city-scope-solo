@@ -4,11 +4,6 @@
 
 .salary-info > h2 {
     color: #4F7590;
-    margin-left: -1rem;
-}
-
-.salary-info > p {
-    margin-left: -1rem;
 }
 
 .salary-info > p > span {
@@ -28,11 +23,11 @@
     background-color: #1E222F;
     color: white;
     height: 2rem;
+    width: 60%;
     padding: .25rem .75rem;
-    margin: .25rem 0 .75rem -1rem;
+    margin: .25rem 20% 1rem 20%;
     border: none;
 }
-
 
 .salary-dropdown-content {
     height: 8rem;

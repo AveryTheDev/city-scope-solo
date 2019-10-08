@@ -1,0 +1,19 @@
+.comparison-container {
+    display: flex;
+    margin:0 auto;
+}
+
+.first-city, .second-city {
+    height: 100vh;
+    width: 50%;
+    overflow-y: scroll;
+}
+
+ .first-city > .city-display, .second-city > .city-display {
+    width: 100%;
+}
+
+ .first-city > .categories, .second-city > .categories {
+    padding: 4rem 3rem;
+}
+

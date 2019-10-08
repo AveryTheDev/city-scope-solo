@@ -25,8 +25,11 @@ const CityPage = () => {
         );
     }
     return (
-        <div>CityPage</div>
-    )
+      <div>
+        <NavBar />
+        <div>No City Found</div>
+      </div>
+    );
 
 }
  

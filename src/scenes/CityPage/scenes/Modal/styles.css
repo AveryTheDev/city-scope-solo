@@ -1,0 +1,22 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.modal-left > h1 {
+    color: white;
+    padding: .5rem;
+}
+
+.modal-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.options-list {
+    color: white;
+    height: 35rem;
+    overflow-y: scroll;
+    width: 15rem;
+}

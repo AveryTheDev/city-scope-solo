@@ -76,7 +76,6 @@ export const getCityBySearchTerm = async city => {
 
         const getCoordFromIdData = async id_data => {
             coord = id_data.data["location"]["latlon"];
-
             return coord;
         }
 
@@ -95,7 +94,7 @@ export const getCityBySearchTerm = async city => {
           coord,
           isChosen: true
         };
-
+        
         return results;
 };
 

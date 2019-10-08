@@ -8,7 +8,20 @@ import Safety from './Safety';
 import Population from './Population';
 import Salary from './Salary';
 
-const Categories = () => {
+const Categories = ({ secondCity }) => {
+    if (secondCity) {
+        return (
+          <div className="categories">
+            <Population secondCity />
+            <LifeQuality secondCity />
+            <Climate secondCity />
+            <Salary secondCity />
+            <Education secondCity />
+            <CostOfLiving secondCity />
+            <Safety secondCity />
+          </div>
+        );
+    }
     return ( 
         <div className="categories">
             <Population />

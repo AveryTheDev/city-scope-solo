@@ -5,12 +5,15 @@ import { getCityBySearchTerm } from "../../../../services/api/components/CityFro
 
 import CityChoice from "./CityChoice";
 import './styles.css';
+import { ComparisonContext } from "../../../../services/context/ComparisonContext";
 
-const CityDropDown = () => {
-
+const CityDropDown = ({ comparison }) => {
   const [cityList, setCityList] = useState([]);
-  const [menuOpen, setMenuOpen] = useState(false);  
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const { chosenCity, setChosenCity } = useContext(ChosenCityContext);
+  const { setComparison } = useContext(ComparisonContext);
+
   const cityButton = useRef();
 
   useEffect(() => {
@@ -20,35 +23,36 @@ const CityDropDown = () => {
   }, []);
 
   useEffect(() => {
-    if(menuOpen) {
-        document.addEventListener("mousedown", handleClick);  
-    }
-    else {
-        document.removeEventListener("mousedown", handleClick)
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClick);
+    } else {
+      document.removeEventListener("mousedown", handleClick);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClick)
-    }
+      document.removeEventListener("mousedown", handleClick);
+    };
   }, [menuOpen]);
 
   const handleClick = e => {
-    if(cityButton.current.contains(e.target)) {
+    if (cityButton.current.contains(e.target)) {
       return;
+    } else {
+      setMenuOpen(false);
     }
-    else {
-      setMenuOpen(false);    
-    }
-  }
+  };
 
   const searchByTerm = term => {
     const searchTerm = term;
 
-    const setCity = async searchTerm => {
-      setChosenCity(await getCityBySearchTerm(searchTerm));
+    const getCityInfo = async searchTerm => {
+      if(comparison) {
+        setComparison(await getCityBySearchTerm(searchTerm));        
+      }
+        setChosenCity(await getCityBySearchTerm(searchTerm));
     };
 
-    setCity(searchTerm);
+    getCityInfo(searchTerm);
     setMenuOpen(false);
   };
 
@@ -56,34 +60,41 @@ const CityDropDown = () => {
 
   if (cityList.length > 0) {
     list = cityList.map((city, index) => {
-      return <CityChoice city={city} key={index} select={searchByTerm}/>;
+      return <CityChoice city={city} key={index} select={searchByTerm} />;
     });
   }
 
-  if(menuOpen) {
-    return (
-        <div ref={cityButton} className="dropdown">
-          <div className="dropdown-trigger" >
-            <button  onClick = {e => setMenuOpen(!menuOpen)}>
-              {chosenCity.cityName}
-            </button>
-          </div> 
-          <div className="dropdown-menu">
-            <div className="dropdown-content">
-                {list}                     
-            </div>
-          </div>  
-        </div>
-    );    
+  let city = chosenCity.cityName;
+
+  if(comparison) {
+    city = comparison.cityName;
   }
-  else {
+
+  if (menuOpen) {
+
     return (
       <div ref={cityButton} className="dropdown">
         <div className="dropdown-trigger">
-          <button onClick={e => setMenuOpen(!menuOpen)}>{chosenCity.cityName}</button>
+          <button onClick={e => setMenuOpen(!menuOpen)}>
+            {city}
+          </button>
+        </div>
+        <div className="dropdown-menu">
+          <div className="dropdown-content">{list}</div>
         </div>
       </div>
-    )
+    );
+  } else {
+
+    return (
+      <div ref={cityButton} className="dropdown">
+        <div className="dropdown-trigger">
+          <button onClick={e => setMenuOpen(!menuOpen)}>
+            {city}
+          </button>
+        </div>
+      </div>
+    );
   }
 };
 

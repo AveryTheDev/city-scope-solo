@@ -5,34 +5,37 @@ import { ChosenCityContext } from '../../../../../services/context/ChosenCityCon
 import { fetchLifeQualityScores } from '../../../../../services/api/components/categories/LifeQuality';
 
 import GraphBar from './component/GraphBar';
+import { ComparisonContext } from '../../../../../services/context/ComparisonContext';
 
-const LifeQuality = () => {
+const LifeQuality = ({ secondCity }) => {
+  const { chosenCity } = useContext(ChosenCityContext);
+  const { comparison } = useContext(ComparisonContext);
+  const [scores, setScores] = useState([]);
 
-    const { chosenCity } = useContext(ChosenCityContext);
-    const [ scores, setScores ] = useState([]);
+  useEffect(() => {
+    const city = secondCity ? comparison : chosenCity;
+    (async function() {
+      setScores(await fetchLifeQualityScores(city.urbanScores));
+    })();
+  }, [chosenCity, comparison, secondCity]);
 
-          useEffect(() => {
-            (async function() {
-              setScores(await fetchLifeQualityScores(chosenCity.urbanScores));
-            })();
-          }, [chosenCity.urbanScores]);
+  if (scores.length) {
+    const bars = scores.map(x => (
+      <GraphBar color={x.color} key={x.name} name={x.name} score={x.score} />
+    ));
 
-    if(scores.length) {
-      const bars = scores.map(x => <GraphBar color={x.color} key={x.name} name={x.name} score={x.score}/>)
-      
-      return ( 
-        <>
-          <h1 className="quality-header">Life Quality Scores</h1>
-          <div className="quality-data">
-              {bars}
-          </div>
-        </>
-      );      
-    }
-    else {
-      return <div></div>
-    }
-
-}
+    return (
+      <>
+        <h1 className="quality-header">Life Quality Scores*</h1>
+        <div className="quality-data">{bars}</div>
+        <p>
+          *based off of comparison to other cities in Teleport's City Database
+        </p>
+      </>
+    );
+  } else {
+    return <div></div>;
+  }
+};
  
 export default LifeQuality;

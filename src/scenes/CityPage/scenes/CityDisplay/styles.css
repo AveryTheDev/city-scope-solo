@@ -69,8 +69,9 @@
 .city-display > .description-text {-ms-overflow-style: none} */
 
 .city-display > .description-text {
-    height: 10rem;
-    overflow: hidden;
+    height: 15%;
+    overflow-y: scroll;
+    padding: .5rem;
 }
 
 .city-display > h1 {
@@ -79,4 +80,33 @@
 
 .city-display > div {
     margin-bottom: 3rem;
+}
+
+.compare-button-container {
+    margin-top: .75rem;
+    margin-right: 1rem;
+    display:flex;
+    justify-content: flex-end;
+}
+
+.compare-button-container > button {
+    background-color: rgb(12, 14, 19);
+    padding: .5rem;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+}
+
+.inactive {
+    display: none;
+}
+
+.active {
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background-color: rgba(5, 4, 4, 0.959);
+    display: block;
 }

@@ -18,7 +18,7 @@ const GraphBar = ({name, color, score}) => {
                 }}
               ></div>           
             </div>              
-            <p className="shownScore">{score > 0 ? score : "N/A"}</p>
+            <p className="shownScore">{score > 0 ? `${score}/10` : "N/A"}</p>
           </div>
         </div>
       </div>
