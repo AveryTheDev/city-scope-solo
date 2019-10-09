@@ -39,11 +39,22 @@ const Modal = withRouter(({history}) => {
         history.replace('/comparison');
     }
 
+      const searchByTerm = term => {
+        const searchTerm = term;
+
+        const setCity = async searchTerm => {
+          setComparison(await getCityBySearchTerm(searchTerm));
+          history.replace('/comparison');
+        };
+
+        setCity(searchTerm);
+      };
+
         let list;
 
         if (cityOptions.length > 0) {
           list = cityOptions.map((city, index) => (
-            <City city={city} key={index} searchByTerm={onTermSubmit} />
+            <City city={city} key={index} searchByTerm={searchByTerm} />
           ));
         }
 

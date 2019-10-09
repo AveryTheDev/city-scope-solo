@@ -7,34 +7,30 @@ import ReactHtmlParser from "react-html-parser";
 import { ChosenCityContext } from "../../../../services/context/ChosenCityContext";
 import { fetchCityDescription } from "../../../../services/api/components/categories/CityDescription";
 
-import { withRouter } from "react-router-dom";
+import { ComparisonContext } from "../../../../services/context/ComparisonContext";
 
-const CityDisplay = withRouter(({history, comparison}) => {
+const CityDisplay = ({secondCity}) => {
   const [description, setDescription] = useState("");
   const [modal, setModal] = useState(false);
 
   const { chosenCity } = useContext(ChosenCityContext);
+  const { comparison } = useContext(ComparisonContext);
 
   useEffect(() => {
-
-    if(comparison) {
-      (async function() {
-        setDescription(await fetchCityDescription(comparison.urbanScores));
-      })();
-    }
+    const city = secondCity ? comparison : chosenCity;
     (async function() {
-      setDescription(await fetchCityDescription(chosenCity.urbanScores));
+      setDescription(await fetchCityDescription(city.urbanScores));
     })();
-  }, [comparison, chosenCity]);
+  }, [comparison, chosenCity, secondCity]);
 
-  if(comparison !== undefined) {
+  if(secondCity) {
       return (
         <>
           <div className="city-display">
             <div className="img-container">
               <img src={comparison.cityImage} alt={comparison.cityName} />
               <div className="menu-container">
-                <CityDropDown comparison/>
+                <CityDropDown comparison={comparison}/>
               </div>
             </div>
             <h1>The City of {comparison.cityName}</h1>
@@ -70,6 +66,6 @@ const CityDisplay = withRouter(({history, comparison}) => {
       </div>
     </>
   );
-});
+};
 
 export default CityDisplay;

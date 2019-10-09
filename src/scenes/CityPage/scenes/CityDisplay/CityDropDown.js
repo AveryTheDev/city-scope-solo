@@ -46,10 +46,10 @@ const CityDropDown = ({ comparison }) => {
     const searchTerm = term;
 
     const getCityInfo = async searchTerm => {
-      if(comparison) {
-        setComparison(await getCityBySearchTerm(searchTerm));        
+      if(comparison !== undefined) {
+        return setComparison(await getCityBySearchTerm(searchTerm));        
       }
-        setChosenCity(await getCityBySearchTerm(searchTerm));
+        return setChosenCity(await getCityBySearchTerm(searchTerm));
     };
 
     getCityInfo(searchTerm);
@@ -66,7 +66,7 @@ const CityDropDown = ({ comparison }) => {
 
   let city = chosenCity.cityName;
 
-  if(comparison) {
+  if (comparison !== undefined) {
     city = comparison.cityName;
   }
 
