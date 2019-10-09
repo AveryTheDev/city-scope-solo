@@ -25,12 +25,12 @@ const Salary = ({ secondCity }) => {
   useEffect(() => {
     const city = secondCity ? comparison : chosenCity;
     (async function() {
-      setProfessions(await fetchProfessions(chosenCity.urbanScores));
+      setProfessions(await fetchProfessions(city.urbanScores));
       setSalaryDetails(
-        await onProfessionSelect(chosenCity.urbanScores, selectedJob)
+        await onProfessionSelect(city.urbanScores, selectedJob)
       );
     })();
-  }, [chosenCity, comparison, secondCity]);
+  }, [chosenCity, comparison, secondCity, selectedJob]);
 
   useEffect(() => {
     if (menuOpen) {
