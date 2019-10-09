@@ -35,7 +35,7 @@ const Population = ({ secondCity }) => {
     );
   }
 
-  return <div>Population</div>;
+  return <div></div>;
 };
  
 export default Population;

@@ -32,7 +32,7 @@ const Expenses = ({ secondCity }) => {
     );
   }
 
-  return <div>Expenses</div>;
+  return <div></div>;
 };
  
 export default Expenses;

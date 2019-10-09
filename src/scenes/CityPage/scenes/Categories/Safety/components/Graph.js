@@ -103,6 +103,71 @@ const Graph = ({ secondCity }) => {
       </div>
     );
   }
+  if(cityStats.length < 0) {
+    return (
+      <div>
+        <h2>Global Safety Data</h2>
+        <VictoryChart
+          containerComponent={
+            <VictoryVoronoiContainer labels={({ datum }) => `${datum.name}`} />
+          }
+        >
+          <VictoryAxis
+            dependentAxis
+            orientation="left"
+            tickValues={[10, 20, 30, 40, 50]}
+            style={{
+              tickLabels: { fontFamily: "Oswald" }
+            }}
+            tickFormat={[
+              `Low 
+                                    Crime`,
+              "",
+              "",
+              "",
+              `High 
+                                    Crime`
+            ]}
+          />
+          <VictoryAxis
+            tickValues={[100, 200, 300, 400]}
+            style={{
+              tickLabels: { fontFamily: "Oswald" }
+            }}
+            tickFormat={["Few Guns", "", "", "Many Guns"]}
+          />
+          <VictoryGroup>
+            <VictoryScatter
+              style={{
+                data: { fill: "1E222F" },
+                labels: { fontFamily: "Oswald" }
+              }}
+              data={dataPoints}
+            />
+            <VictoryScatter
+              style={{
+                data: {
+                  fill: "#17A2B8",
+                  stroke: "#72e9fc",
+                  strokeWidth: 3
+                },
+                labels: { fontFamily: "Oswald" }
+              }}
+              size={10}
+              data={[
+                {
+                  x: cityStats.guns,
+                  y: cityStats.deaths,
+                  name: "(selected)"
+                }
+              ]}
+            />
+          </VictoryGroup>
+        </VictoryChart>
+      </div>
+    );
+ 
+  }
   return <div>Graph</div>;
 };
  

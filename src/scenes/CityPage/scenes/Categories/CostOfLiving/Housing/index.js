@@ -32,7 +32,7 @@ const Housing = ({ secondCity }) => {
     );
   }
 
-  return <div>Housing</div>;
+  return <div></div>;
 };
  
 export default Housing;
