@@ -33,15 +33,17 @@ const CityDisplay = ({secondCity}) => {
                 <CityDropDown comparison={comparison}/>
               </div>
             </div>
-            <h1>The City of {comparison.cityName}</h1>
-            <div className="description-text">{ReactHtmlParser(description)}</div>
-            <div className="compare-button-container">
-              <button onClick={() => setModal(!modal)}>Compare City</button>
+            <div className="when-mobile">
+              <h1>The City of {comparison.cityName}</h1>
+              <div className="description-text">{ReactHtmlParser(description)}</div>
+              <div className="compare-button-container">
+                <button onClick={() => setModal(!modal)}>Compare City</button>
+              </div>
+              <div className={modal ? 'active' : 'inactive'}>
+                <Modal secondCity/>            
+              </div>              
             </div>
-          </div>
-          <div className={modal ? 'active' : 'inactive'}>
-            <Modal secondCity/>            
-          </div>
+           </div>            
         </>
       );
   }
@@ -55,14 +57,16 @@ const CityDisplay = ({secondCity}) => {
             <CityDropDown />
           </div>
         </div>
-        <h1>The City of {chosenCity.cityName}</h1>
-        <div className="description-text">{ReactHtmlParser(description)}</div>
-        <div className="compare-button-container">
-          <button onClick={() => setModal(!modal)}>Compare City</button>
+        <div className="when-mobile">
+          <h1>The City of {chosenCity.cityName}</h1>
+          <div className="description-text">{ReactHtmlParser(description)}</div>
+          <div className="compare-button-container">
+            <button onClick={() => setModal(!modal)}>Compare City</button>
+          </div>
+          <div className={modal ? "active" : "inactive"}>
+            <Modal />
+          </div>
         </div>
-      </div>
-      <div className={modal ? 'active' : 'inactive'}>
-        <Modal />
       </div>
     </>
   );

@@ -25,9 +25,15 @@ const Housing = ({ secondCity }) => {
     return (
       <>
         <h2>Housing</h2>
-        <p>Average Small Apartment Cost: {housing.small} USD</p>
-        <p>Average Medium Apartment Cost: {housing.medium} USD</p>
-        <p>Average Large Apartment Cost: {housing.large} USD</p>
+        <p>
+          Average Small Apartment Rent: <span>${housing.small} USD</span>
+        </p>
+        <p>
+          Average Medium Apartment Rent: <span>${housing.medium} USD</span>
+        </p>
+        <p>
+          Average Large Apartment Rent: <span>${housing.large} USD</span>
+        </p>
       </>
     );
   }

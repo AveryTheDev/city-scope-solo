@@ -4,6 +4,12 @@ body {
     overflow: hidden;
 }
 
+@media (max-width: 650px) {
+    body {
+        overflow-y: scroll;        
+    }
+}
+
 h1, h2, h3, p {
     font-family: "Oswald", sans-serif;
 }

@@ -1,7 +1,14 @@
 .education > h2 {
-    color: #4F7590;
+    color: #294253;
 }
 
 .education > h3 {
-    color: #5f8fb1;
+    color: #1E222F;
+}
+
+.education {
+    background-color: #7D8F9C;
+    color: white;
+    padding: 3rem;
+    margin: auto -3rem;
 }

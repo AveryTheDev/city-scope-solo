@@ -8,7 +8,8 @@ const ChosenCityContextProvider = props => {
         geoname_id: 0,
         cityImage: '',
         cityName: '',
-        coord: {}
+        coord: {}, 
+        inDatabase: false
     })
 
 

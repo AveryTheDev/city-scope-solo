@@ -1,5 +1,5 @@
-.salary-info > h1 {
-    margin-left: -1rem;
+.salary-info {
+    margin: 3rem auto;
 }
 
 .salary-info > h2 {

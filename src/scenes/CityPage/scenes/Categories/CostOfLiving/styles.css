@@ -1,3 +1,16 @@
+.cost-of-living {
+    margin: 2rem auto;
+}
+
 .cost-of-living > h2 {
     color: #4F7590;
+}
+
+.cost-of-living > p> span, .expenses > span {
+    color: #4F7590;
+    font-size: 1.25rem;
+}
+
+.cost-of-living > p {
+    margin-left: 1rem;
 }

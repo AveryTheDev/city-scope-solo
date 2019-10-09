@@ -37,17 +37,20 @@ export const getCityBySearchTerm = async city => {
             "cities/?search=" + refinedSearchTerm
             );
 
-            let cityResponseURL =
-            citySearch.data["_embedded"]["city:search-results"][0]["_links"][
-                "city:item"
-            ]["href"];
+            if(citySearch.data.count === 0) return 'N/A';
+            else {
+                let cityResponseURL =
+                citySearch.data["_embedded"]["city:search-results"][0]["_links"][
+                    "city:item"
+                ]["href"];
 
-            let idSearch = /[0-9]/g;
+                let idSearch = /[0-9]/g;
 
-            geoname_id = cityResponseURL.match(idSearch);
-            geoname_id = geoname_id.toString().replace(/,/g, "");
+                geoname_id = cityResponseURL.match(idSearch);
+                geoname_id = geoname_id.toString().replace(/,/g, "");
 
-            return geoname_id;
+                return geoname_id;                
+            }
         };
 
         const getCityImageFromUrbanScores = async urbanScores => {
@@ -80,21 +83,36 @@ export const getCityBySearchTerm = async city => {
         }
 
         geoname_id = await getCityIdFromSearchTerm(searchTerm);
-        id_data = await fromCityId(geoname_id);
-        urbanScores = await getCityDetailsFromId(geoname_id, id_data); 
-        cityImage = await getCityImageFromUrbanScores(urbanScores);
-        cityName = await getCityName(id_data);
-        coord = await getCoordFromIdData(id_data);
 
-        results = {
-          urbanScores,
-          geoname_id,
-          cityImage,
-          cityName,
-          coord,
-          isChosen: true
-        };
-        
-        return results;
+        if(geoname_id === 'N/A') {
+            results = {
+            urbanScores: 'N/A',
+            geoname_id: 'N/A',
+            cityImage: 'N/A',
+            cityName: 'N/A',
+            coord: 'N/A',
+            inDatabase: false
+            }
+            return results;
+        }
+        else {
+            id_data = await fromCityId(geoname_id);
+            urbanScores = await getCityDetailsFromId(geoname_id, id_data); 
+            cityImage = await getCityImageFromUrbanScores(urbanScores);
+            cityName = await getCityName(id_data);
+            coord = await getCoordFromIdData(id_data);
+
+            results = {
+            urbanScores,
+            geoname_id,
+            cityImage,
+            cityName,
+            coord,
+            inDatabase: true
+            };
+            
+            return results;   
+        }
+
 };
 

@@ -7,6 +7,7 @@
     height: 100vh;
     width: 50%;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
  .first-city > .city-display, .second-city > .city-display {
@@ -14,5 +15,23 @@
 }
 
  .first-city > .categories, .second-city > .categories {
-    padding: 4rem 3rem;
+    padding: 3rem 3rem;
+}
+
+
+.compare-mobile {
+    display: none;
+}
+
+@media (max-width: 699px) {
+    .compare-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #7D8F9C;
+        color: white;
+    }
+    .compare-desktop {
+        display: none;
+    }
 }

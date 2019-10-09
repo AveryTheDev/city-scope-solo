@@ -2,13 +2,14 @@ import React, { createContext, useState } from "react";
 
 export const ComparisonContext = createContext();
 
-const ComparisonContextProvider = props => {
+const ComparisonContextProvider =  props => {
   const [comparison, setComparison] = useState({
     urbanScores: "",
     geoname_id: 0,
     cityImage: "",
     cityName: "",
-    coord: {}
+    coord: {},
+    inDatabase: false
   });
 
   return (

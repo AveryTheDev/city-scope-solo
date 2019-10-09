@@ -4,15 +4,36 @@
     justify-content: center;
 }
 
+.background > .mobile-only {
+    display: none;
+}
+
 @media (min-width: 768px) {
     .background {
         display: flex;
         align-items: center;
-        height: 100vh;
         width: 100%;
     }
 
     .background > img {
         height: 30rem;
+    }
+}
+
+@media (max-width: 628px) {
+    .background {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .background > .mobile-only {
+        display: block;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+
+    .background > img {
+        height: 20rem;
     }
 }

@@ -1,26 +1,35 @@
 .client-panel {
     height: 90vh;
-    overflow-y: scroll;
     padding: 3rem;
     width: 60%;
 }
 
-.icon-panel {
-    position: fixed;
-}
-
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 628px) {
     .desktop {
         display: none;
     }
+
+    .client-panel {
+        width: auto;
+        padding: 1.5rem 3rem 2rem 3rem;
+        margin-top: -1rem;
+    }
 }
 
-@media (min-width: 426px) {
+@media (min-width: 629px) {
     .mobile {
         display: none;
     }
 
     .desktop {
         display: flex;
+    }
+
+    .icon-panel {
+        position: fixed;
+    }
+
+    .client-panel {
+        overflow-y: scroll;
     }
 }

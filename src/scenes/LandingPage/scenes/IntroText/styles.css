@@ -18,3 +18,24 @@
     font-style: italic;
     text-align: center;
 }
+
+@media (max-width: 628px) {
+    .intro-text > h1 {
+        display: none;
+    }
+
+    .intro-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+        background-color: #4F7590;
+        color: white;
+        margin: -1rem -3rem 2rem -3rem;
+        padding: 1rem 3rem 3rem 3rem;
+    }
+
+    .intro-text > form > input {
+        font-size: 16px;
+    }
+}

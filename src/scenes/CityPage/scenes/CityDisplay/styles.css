@@ -1,11 +1,4 @@
-
-.dropdown {
-    /* position: fixed;
-    left: 25%;
-  transform: translate(-50%, -50%); */
-}
-
-.dropdown-trigger > button{
+.dropdown-trigger > button {
     color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 3rem;
@@ -57,28 +50,23 @@
     z-index: 2;
 }
 
-.city-display > .description-text, .city-display > h1 {
+.description-text, .when-mobile > h1 {
     font-family: "Oswald", sans-serif;
     color: white;
     margin: auto 2rem;
 }
 
-/* .city-display > .description-text::-webkit-scrollbar { width: 0 !important}
-.city-display > .description-text {overflow: -moz-scrollbars-none}
-.city-display > .description-text {-ms-overflow-style: none} */
-
-.city-display > .description-text {
-    height: 15%;
-    overflow-y: scroll;
+.description-text {
+    height: 5.5rem;
     padding: .5rem;
 }
 
-.city-display > h1 {
+ .when-mobile > h1 {
     margin-top: 3rem;
 }
 
-.city-display > div {
-    margin-bottom: 3rem;
+.when-mobile > div {
+    margin-bottom: 1rem;
 }
 
 .compare-button-container {
@@ -109,4 +97,32 @@
     height: 100%;
     background-color: rgba(5, 4, 4, 0.959);
     display: block;
+}
+
+@media (max-width: 650px) {
+
+    .city-display {
+        width: auto;
+        height: 100%;
+    }
+
+    .img-container > img {
+        height: 12.5rem;
+    }
+
+    .description-text {
+        height: auto;
+    }
+}
+
+@media (min-width: 651px) {
+    .description-text {
+        overflow-y: scroll;
+    }
+}
+
+@media (max-width: 800px) {
+    .dropdown-trigger > button {
+        font-size: 2rem;
+    }
 }

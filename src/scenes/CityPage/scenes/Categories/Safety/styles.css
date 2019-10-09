@@ -1,9 +1,20 @@
 .graph > h2 {
     margin-bottom: -2rem;
-    color: #4F7590;
+    color: #294253;
+}
+
+.graph > p {
+    margin-left: 1rem;
 }
 
 .graph > p > span {
-    color: #4F7590;
+    color: #1E222F;
     font-size: 1.5rem;
+}
+
+.safety-container {
+    background-color: #7D8F9C;
+    color: white;
+    padding: 3rem;
+    margin: auto -3rem -1rem -3rem;
 }

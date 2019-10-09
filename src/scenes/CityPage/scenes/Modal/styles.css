@@ -4,6 +4,10 @@
     padding: 3rem;
 }
 
+.modal > p {
+    color: white;
+}
+
 .modal-left > h1 {
     color: white;
     padding: .5rem;
@@ -20,3 +24,11 @@
     overflow-y: scroll;
     width: 15rem;
 }
+
+
+@media (max-width: 699px) {
+    .compare-button-container {
+        display: none;
+    }
+}
+

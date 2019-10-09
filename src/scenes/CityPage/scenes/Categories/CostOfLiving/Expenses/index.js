@@ -20,7 +20,7 @@ const Expenses = ({ secondCity }) => {
   if (expenses.length > 0) {
     let results = expenses.map(x => (
       <p key={x.item + x.cost} className="expenses">
-        Cost of {x.item}: ${x.cost} USD
+        Cost of {x.item}: <span>${x.cost} USD</span>
       </p>
     ));
 

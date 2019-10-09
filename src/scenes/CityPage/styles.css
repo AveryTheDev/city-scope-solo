@@ -1,3 +1,8 @@
+.city-page {
+    display: flex;
+    flex-direction: column;
+}
+
 .city-content {
     display: flex;
 }
@@ -5,6 +10,43 @@
 .category-panel {
     height: 80vh;
     width: 50%;
-    overflow-y: scroll;
     padding: 3rem;
+}
+
+.no-results {
+    padding: 3rem;
+}
+
+.no-results > .name-list {
+    height: 35vh;
+    overflow-y: scroll;
+}
+
+@media (max-width: 650px) {
+
+    .category-panel {
+        width: auto;
+    }
+
+    .city-content {
+        display: flex;
+        flex-direction: column;
+    } 
+
+    .desktop {
+        display: none;
+    }
+
+}
+
+@media (min-width: 651px) {
+
+    .mobile {
+        display: none;
+    }
+
+    .category-panel {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
 }

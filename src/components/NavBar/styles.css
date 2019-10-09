@@ -29,3 +29,30 @@
 .nav-search-bar {
     margin-right: 2rem;
 }
+
+@media (max-width: 649px) {
+    .nav-bar {
+        margin-right: -1rem;
+    }
+}
+
+@media (min-width: 374px) and (max-width: 425px) {
+
+    .nav-img > img {
+        height: 2.5rem;
+    }
+
+    .nav-icon-title > h3 {
+        font-size: 18px;
+    }
+
+    .nav-search-bar > form > input {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .nav-search-bar {
+        display: none;
+    }
+}

@@ -6,17 +6,17 @@ import Graph from "./components/Graph";
 const Safety = ({ secondCity }) => {
     if(secondCity) {
         return (
-            <div>
-            <h1>Safety</h1>
-            <Graph secondCity/>
+            <div className="safety-container">
+                <h1>Safety</h1>
+                <Graph secondCity/>
             </div>
         );  
     }
 
     return (
-        <div>
-        <h1>Safety</h1>
-        <Graph />
+        <div className="safety-container">
+            <h1>Safety</h1>
+            <Graph />
         </div>
     );  
 };

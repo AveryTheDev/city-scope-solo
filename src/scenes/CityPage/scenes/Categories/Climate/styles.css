@@ -2,8 +2,7 @@
     background-color: #7D8F9C;
     color: white;
     width: 100%;
-    padding: 2rem;
-    padding-right: 5rem;
+    padding: 2rem 3rem;
     margin-left: -3rem;
 }
 
@@ -34,4 +33,16 @@
 .temp-row > img {
     height: 4rem;
     margin: auto 1rem;
+}
+
+@media (max-width:628px) {
+    .temp-row {
+        margin-left: -1rem;
+    }
+}
+
+@media (min-width: 629px) {
+    .temp-row {
+        margin-left: -1.5rem;
+    }
 }

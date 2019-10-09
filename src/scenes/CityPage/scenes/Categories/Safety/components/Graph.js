@@ -53,7 +53,7 @@ const Graph = ({ secondCity }) => {
             orientation="left"
             tickValues={[10, 20, 30, 40, 50]}
             style={{
-              tickLabels: { fontFamily: "Oswald" }
+              tickLabels: { fontFamily: "Oswald", fill: "white" }
             }}
             tickFormat={[
               `Low 
@@ -68,7 +68,7 @@ const Graph = ({ secondCity }) => {
           <VictoryAxis
             tickValues={[100, 200, 300, 400]}
             style={{
-              tickLabels: { fontFamily: "Oswald" }
+              tickLabels: { fontFamily: "Oswald", fill: "white" }
             }}
             tickFormat={["Few Guns", "", "", "Many Guns"]}
           />
@@ -76,7 +76,7 @@ const Graph = ({ secondCity }) => {
             <VictoryScatter
               style={{
                 data: { fill: "1E222F" },
-                labels: { fontFamily: "Oswald" }
+                labels: { fontSize: 9, fontFamily: "Oswald" }
               }}
               data={dataPoints}
             />
@@ -87,7 +87,7 @@ const Graph = ({ secondCity }) => {
                   stroke: "#72e9fc",
                   strokeWidth: 3
                 },
-                labels: { fontFamily: "Oswald" }
+                labels: { fontFamily: "Oswald", fontSize: 9 }
               }}
               size={10}
               data={[

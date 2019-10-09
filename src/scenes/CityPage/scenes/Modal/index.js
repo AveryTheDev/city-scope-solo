@@ -36,6 +36,7 @@ const Modal = withRouter(({history, secondCity}) => {
         }
 
         setCity(term);
+
         history.replace('/comparison');
     }
 
@@ -47,6 +48,7 @@ const Modal = withRouter(({history, secondCity}) => {
         }
 
         setCity(term);
+
         history.replace('/comparison');
     }
 
@@ -97,7 +99,7 @@ const Modal = withRouter(({history, secondCity}) => {
                 value={term}
                 onChange={onInputChange}
             />
-            </form>              
+            </form>            
           </div>
         <div className="options-list">{list}</div>
       </div>

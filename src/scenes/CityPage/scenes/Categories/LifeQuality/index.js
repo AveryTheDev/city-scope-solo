@@ -27,10 +27,12 @@ const LifeQuality = ({ secondCity }) => {
     return (
       <>
         <h1 className="quality-header">Life Quality Scores*</h1>
-        <div className="quality-data">{bars}</div>
-        <p>
-          *based off of comparison to other cities in Teleport's City Database
-        </p>
+        <div className="quality-data">
+          {bars}
+          <p>
+            *based off of comparison to other cities in Teleport's City Database
+          </p>          
+        </div>
       </>
     );
   } else {
