@@ -22,6 +22,8 @@ const Education = ({ secondCity }) => {
     })();
   }, [chosenCity, comparison, secondCity]);
 
+  const city = secondCity ? comparison.cityName : chosenCity.cityName;
+
   if (education !== undefined) {
     return (
       <div className="education">
@@ -34,7 +36,7 @@ const Education = ({ secondCity }) => {
           the age of 15 as many countries allow students at this age to chose
           whether to continue proceeding with their education at this point.
         </p>
-        <h3>{chosenCity.cityName}</h3>
+        <h3>{city}</h3>
         <p>Overall Ranking: {education.overallRanking} out of 100</p>
         <p>Average Math PISA Score: {education.meanMathValue}</p>
         <p>Average Reading PISA Score: {education.meanReadingValue}</p>
