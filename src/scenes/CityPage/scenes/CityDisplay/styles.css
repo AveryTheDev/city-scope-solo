@@ -1,8 +1,8 @@
 
 .dropdown {
-    position: fixed;
+    /* position: fixed;
     left: 25%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .dropdown-trigger > button{
@@ -24,7 +24,6 @@
     width: 100%;
     background-color: rgba(0,0,0,0.5);
     overflow-y: scroll;
-
 }
 
 .dropdown-content{
@@ -43,6 +42,7 @@
 .img-container {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .img-container > img {
@@ -54,8 +54,6 @@
 .menu-container {
     position: absolute;
     z-index: 2;
-    top: 40%;
-    left: 35%;
 }
 
 .city-display > .description-text, .city-display > h1 {
