@@ -32,7 +32,7 @@
 
 .categoryBar {    
     position: relative;
-    width: 70%;
+    width: 60%;
     height: 1rem;
     background-color: rgb(228, 225, 225);
 }
@@ -40,4 +40,10 @@
 .shownScore {
     margin-left: 1rem;
     font-weight: bold;
+}
+
+@media (max-width: 849px) {
+    .categoryContainer {
+        width: 50%;
+    }
 }
