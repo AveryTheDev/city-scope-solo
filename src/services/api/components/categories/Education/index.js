@@ -27,29 +27,22 @@ export const fetchEducation = async urbanScores => {
       category => category.id.toUpperCase() === "EDUCATION"
     );
 
-    overallRanking = cityEducation.data.find(
-      x => x.id === "PISA-RANKING-TELESCORE"
-    );
-    meanMathValue = cityEducation.data.find(
-      x => x.id === "PISA-DETAIL-MATH-MEAN-SCORES"
-    );
-    meanReadingValue = cityEducation.data.find(
-      x => x.id === "PISA-DETAIL-READING-MEAN-SCORES"
-    );
-    meanScienceValue = cityEducation.data.find(
-      x => x.id === "PISA-DETAIL-SCIENCE-MEAN-SCORES"
-    );
+    if(cityEducation === undefined) return;
 
-    if (
-      !cityEducation ||
-      !overallRanking ||
-      !meanMathValue ||
-      !meanReadingValue ||
-      !meanScienceValue
-    ) {
-      return;
-    } else {
-
+   else {
+        overallRanking = cityEducation.data.find(
+          x => x.id === "PISA-RANKING-TELESCORE"
+        );
+        meanMathValue = cityEducation.data.find(
+          x => x.id === "PISA-DETAIL-MATH-MEAN-SCORES"
+        );
+        meanReadingValue = cityEducation.data.find(
+          x => x.id === "PISA-DETAIL-READING-MEAN-SCORES"
+        );
+        meanScienceValue = cityEducation.data.find(
+          x => x.id === "PISA-DETAIL-SCIENCE-MEAN-SCORES"
+        );
+        
         overallRanking = await statFormat(overallRanking.float_value * 100);
         meanMathValue = await statFormat(meanMathValue.float_value);
         meanReadingValue = await statFormat(meanReadingValue.float_value);

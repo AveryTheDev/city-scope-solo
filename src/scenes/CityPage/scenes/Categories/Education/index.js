@@ -22,7 +22,7 @@ const Education = ({ secondCity }) => {
     })();
   }, [chosenCity, comparison, secondCity]);
 
-  if (education.meanMathValue > 0) {
+  if (education !== undefined) {
     return (
       <div className="education">
         <h1>Education</h1>
@@ -43,7 +43,7 @@ const Education = ({ secondCity }) => {
     );
   }
 
-  return <div>Education</div>;
+  return <div></div>;
 };
  
 export default Education;
