@@ -1,7 +1,7 @@
 # City Scope (solo)
 
 ## Overview 
-This is a completely independently coded version of the group project that I led called "City Scope". This React app serves the function of pulling information from Teleport City's open source [API](https://developers.teleport.org/api/) with the aim of providing enough information for users to make a decision regarding which major city to move to out of the 266 cities it contains information on.
+This is a completely independently coded version of the group project that I led called "City Scope". This React app serves the function of pulling information from Teleport City's [open source API](https://developers.teleport.org/api/) with the aim of providing enough information for users to make a decision regarding which major city to move to out of the 266 cities it contains information on.
 
 ## Changes
 
