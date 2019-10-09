@@ -42,7 +42,7 @@
 .img-container > img {
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 40vh;
 }
 
 .menu-container {
@@ -57,7 +57,7 @@
 }
 
 .description-text {
-    height: 5.5rem;
+    height: 7rem;
     padding: .5rem;
 }
 
@@ -106,10 +106,6 @@
         height: 100%;
     }
 
-    .img-container > img {
-        height: 12.5rem;
-    }
-
     .description-text {
         height: auto;
     }
@@ -124,5 +120,13 @@
 @media (max-width: 800px) {
     .dropdown-trigger > button {
         font-size: 2rem;
+    }
+
+    .img-container > img {
+        height: 12.5rem;
+    }
+
+    .description-text {
+        height: 8rem;
     }
 }
