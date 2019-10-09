@@ -40,6 +40,7 @@
 }
 
 .img-container {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,8 +103,9 @@
 .active {
     position: absolute;
     z-index: 4;
+    top: 0;
     left: 0;
-    width: 30%;
+    width: 40%;
     height: 100%;
     background-color: rgba(5, 4, 4, 0.959);
     display: block;

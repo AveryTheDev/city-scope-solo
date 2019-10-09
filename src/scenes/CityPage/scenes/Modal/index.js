@@ -11,12 +11,12 @@ import City from './City';
 import { withRouter } from 'react-router-dom';
 import { fetchCities } from '../../../../services/api/components/CityList';
 
-const Modal = withRouter(({history}) => {
+const Modal = withRouter(({history, secondCity}) => {
     const [ term, setTerm ] = useState('');
     const [cityOptions, setCityOptions] = useState([]);
 
-    const { chosenCity } = useContext(ChosenCityContext);
-    const { setComparison } = useContext(ComparisonContext);
+    const { chosenCity, setChosenCity } = useContext(ChosenCityContext);
+    const { comparison, setComparison } = useContext(ComparisonContext);
 
     useEffect(() => {
       (async function() {
@@ -28,7 +28,18 @@ const Modal = withRouter(({history}) => {
         setTerm(e.target.value);
     }
 
-    const onTermSubmit = e => {
+    const submitFirstCity = e => {
+        e.preventDefault();
+
+        const setCity = async term => {
+            setChosenCity(await getCityBySearchTerm(term));
+        }
+
+        setCity(term);
+        history.replace('/comparison');
+    }
+
+    const submitSecondCity = e => {
         e.preventDefault();
 
         const setCity = async term => {
@@ -39,30 +50,48 @@ const Modal = withRouter(({history}) => {
         history.replace('/comparison');
     }
 
-      const searchByTerm = term => {
-        const searchTerm = term;
+    const searchForFirstCity = term => {
+      const searchTerm = term;
 
-        const setCity = async searchTerm => {
-          setComparison(await getCityBySearchTerm(searchTerm));
-          history.replace('/comparison');
-        };
-
-        setCity(searchTerm);
+      const setCity = async searchTerm => {
+        setChosenCity(await getCityBySearchTerm(searchTerm));
+        history.replace('/comparison');
       };
 
-        let list;
+      setCity(searchTerm);
+    };
 
-        if (cityOptions.length > 0) {
-          list = cityOptions.map((city, index) => (
-            <City city={city} key={index} searchByTerm={searchByTerm} />
-          ));
-        }
+    const searchForSecondCity= term => {
+      const searchTerm = term;
+
+      const setCity = async searchTerm => {
+        setComparison(await getCityBySearchTerm(searchTerm));
+        history.replace('/comparison');
+      };
+
+      setCity(searchTerm);
+    };
+
+    let list;
+
+    if (cityOptions.length > 0 && secondCity) {
+      list = cityOptions.map((city, index) => (
+        <City city={city} key={index} searchByTerm={searchForFirstCity} />
+      ));
+    } else if (cityOptions.length > 0) {
+      list = cityOptions.map((city, index) => (
+        <City city={city} key={index} searchByTerm={searchForSecondCity} />
+      ));
+    }
+      
+    const city = secondCity ? comparison.cityName : chosenCity.cityName;
+    const action = secondCity ? submitFirstCity : submitSecondCity;
 
     return (
       <div className="modal">
           <div className="modal-left">
-            <h1>Pick A City To Compare With {chosenCity.cityName}</h1>
-            <form onSubmit={onTermSubmit}>
+            <h1>Pick A City To Compare With {city}</h1>
+            <form onSubmit={action}>
             <input
                 placeholder="Compare with..."
                 value={term}

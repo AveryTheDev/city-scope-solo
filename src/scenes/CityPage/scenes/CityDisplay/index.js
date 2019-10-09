@@ -40,7 +40,7 @@ const CityDisplay = ({secondCity}) => {
             </div>
           </div>
           <div className={modal ? 'active' : 'inactive'}>
-            <Modal />            
+            <Modal secondCity/>            
           </div>
         </>
       );
