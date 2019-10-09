@@ -6,8 +6,9 @@
 .population {
     background-color: #7D8F9C;
     width: 100%;
+    overflow-x: hidden;
     padding: 2rem;
-    padding-right: 5rem;
+    padding-right: 4rem;
     color: white;
     margin-left: -3rem;
     margin-top: -3rem;
