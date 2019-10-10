@@ -20,7 +20,7 @@
     }
 }
 
-@media (max-width: 628px) {
+@media (max-width: 649px) {
     .background {
         flex-direction: column;
         align-items: center;
@@ -35,5 +35,6 @@
 
     .background > img {
         height: 20rem;
+        width: 100%;
     }
 }

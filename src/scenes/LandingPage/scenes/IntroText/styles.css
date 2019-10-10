@@ -19,7 +19,7 @@
     text-align: center;
 }
 
-@media (max-width: 628px) {
+@media (max-width: 649px) {
     .intro-text > h1 {
         display: none;
     }

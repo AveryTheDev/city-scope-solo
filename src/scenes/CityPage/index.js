@@ -16,7 +16,7 @@ const CityPage = () => {
     if(chosenCity.inDatabase) {
         return ( 
             <> 
-                <div className="city-page desktop">
+                <div className="city-page desktop-city-page">
                     <NavBar />
                     <div className="city-content">
                         <CityDisplay/>     
@@ -25,7 +25,7 @@ const CityPage = () => {
                         </div>               
                     </div>
                 </div>
-                <div className="city-page mobile">
+                <div className="city-page mobile-city-page">
                     <NavBar />
                     <div className="city-content">
                         <CityDisplay/>     

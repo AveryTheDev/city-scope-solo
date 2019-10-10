@@ -99,6 +99,17 @@
     display: block;
 }
 
+@media (max-width: 650px), (max-height: 425px) {
+    .city-display {
+        width: auto;
+        height: 100%;
+    }
+
+    .description-text {
+        height: auto;
+    }
+}
+
 @media (max-width: 650px) {
 
     .city-display {

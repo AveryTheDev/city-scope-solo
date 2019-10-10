@@ -22,8 +22,7 @@
     overflow-y: scroll;
 }
 
-@media (max-width: 650px) {
-
+@media (max-height: 425px), (max-width: 650px) {
     .category-panel {
         width: auto;
     }
@@ -33,15 +32,14 @@
         flex-direction: column;
     } 
 
-    .desktop {
+    .desktop-city-page {
         display: none;
     }
-
 }
 
-@media (min-width: 651px) {
+@media (min-height: 426px) and (min-width: 651px){
 
-    .mobile {
+    .mobile-city-page {
         display: none;
     }
 

@@ -4,7 +4,7 @@
     width: 60%;
 }
 
-@media screen and (max-width: 628px) {
+@media screen and (max-width: 649px) {
     .desktop {
         display: none;
     }
@@ -16,7 +16,7 @@
     }
 }
 
-@media (min-width: 629px) {
+@media (min-width: 649px) {
     .mobile {
         display: none;
     }
