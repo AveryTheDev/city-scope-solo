@@ -11,9 +11,9 @@ const NavBar = () => {
         <div className="nav-bar">
             <div className="nav-icon-title">
                 <Link to="/landing" className="nav-img">
-                    <img src={cityIcon} alt='Back to Home'/>                
-                </Link>
-                <h3>City Scope</h3>                
+                    <img src={cityIcon} alt='Back to Home'/> 
+                    <h3>City Scope</h3>                                    
+                </Link>               
             </div>
             <div className="nav-search-bar">
                 <SearchBar />

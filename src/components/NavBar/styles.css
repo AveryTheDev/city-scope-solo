@@ -7,12 +7,12 @@
     justify-content: space-between;
 }
 
-.nav-icon-title {
+.nav-img {
     display: flex;
     align-items:center;    
 }
 
-.nav-icon-title > h3 {
+.nav-img > h3 {
     font-family: "Oswald", sans-serif;
     color: white;
     text-decoration: underline;
