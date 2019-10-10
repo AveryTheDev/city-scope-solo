@@ -57,7 +57,7 @@
 }
 
 .description-text {
-    height: 7rem;
+    height: 9rem;
     padding: .5rem;
 }
 
@@ -117,6 +117,12 @@
     }
 }
 
+@media (mix-width: 651px) and (max-width: 800px) {
+    .description-text {
+        height: 8rem;
+    }    
+}
+
 @media (max-width: 800px) {
     .dropdown-trigger > button {
         font-size: 2rem;
@@ -124,9 +130,5 @@
 
     .img-container > img {
         height: 12.5rem;
-    }
-
-    .description-text {
-        height: 8rem;
     }
 }

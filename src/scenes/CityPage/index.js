@@ -45,7 +45,7 @@ const CityPage = () => {
             <h1>We Couldn't Find That In Our Database</h1>
             <h2>Please Try Entering A New Search Term...</h2>
             <SearchBar />
-            <h3>Or Choose From The List Of Names Below</h3>
+            <h3>Or Choose From The List Of Cities Below</h3>
             <CityList />
         </div>            
         </div>
