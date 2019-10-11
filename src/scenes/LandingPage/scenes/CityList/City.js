@@ -1,8 +1,10 @@
 import React from 'react'; 
 
+import './styles.css'
+
 const City = ({ city, searchByTerm }) => {
     return ( 
-            <p onClick={() => searchByTerm({city})}>
+            <p className="city-option" onClick={() => searchByTerm({city})}>
                 {city}
             </p>
      );
