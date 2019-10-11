@@ -10,6 +10,7 @@
 .name-list > p {
     margin-right: 0rem;
     font-family: "Oswald", sans-serif;
+    padding: .5rem;
     font-size: 14px;
     color: #4F7591;
 }
