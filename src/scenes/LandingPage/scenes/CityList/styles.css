@@ -17,3 +17,8 @@
 .city-option {
     cursor: pointer;
 }
+
+.city-option:hover {
+    background-color: #4F7591;
+    color: white;
+}
