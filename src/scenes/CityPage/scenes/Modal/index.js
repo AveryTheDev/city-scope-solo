@@ -37,7 +37,7 @@ const Modal = withRouter(({history, secondCity}) => {
 
         setCity(term);
 
-        history.replace('/comparison');
+        history.push('/comparison');
     }
 
     const submitSecondCity = e => {
@@ -49,7 +49,7 @@ const Modal = withRouter(({history, secondCity}) => {
 
         setCity(term);
 
-        history.replace('/comparison');
+        history.push('/comparison');
     }
 
     const searchForFirstCity = term => {
@@ -57,7 +57,7 @@ const Modal = withRouter(({history, secondCity}) => {
 
       const setCity = async searchTerm => {
         setChosenCity(await getCityBySearchTerm(searchTerm));
-        history.replace('/comparison');
+        history.push('/comparison');
       };
 
       setCity(searchTerm);
@@ -68,7 +68,7 @@ const Modal = withRouter(({history, secondCity}) => {
 
       const setCity = async searchTerm => {
         setComparison(await getCityBySearchTerm(searchTerm));
-        history.replace('/comparison');
+        history.push('/comparison');
       };
 
       setCity(searchTerm);

@@ -25,7 +25,7 @@ const CityList = withRouter(({history}) => {
 
         const setCity = async (searchTerm) => {
             setChosenCity(await getCityBySearchTerm(searchTerm));
-            history.replace('/citypage');
+            history.push('/citypage');
         };
 
         setCity(searchTerm);        

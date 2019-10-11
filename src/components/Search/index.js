@@ -20,7 +20,7 @@ const SearchBar = withRouter(({history}) => {
 
       const setCity = async term => {
         setChosenCity(await getCityBySearchTerm(term));
-        history.replace("/citypage");
+        history.push("/citypage");
       };
 
       setCity(term);
