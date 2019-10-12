@@ -1,8 +1,10 @@
+import './styles.css';
+
 import React from 'react'; 
 
 const City = ({ city, searchByTerm }) => {
     return ( 
-            <p onClick={() => searchByTerm({city})}>
+            <p className="modal-city" onClick={() => searchByTerm({city})}>
                 {city}
             </p>
      );
