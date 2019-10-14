@@ -14,8 +14,10 @@ import {
 import { formatData, fetchCitySafety } from '../utils';
 import {fetchGlobalSafety} from '../../../../../../services/api/components/categories/Safety'
 import { ComparisonContext } from '../../../../../../services/context/ComparisonContext';
+import { GraphLoader } from '../../../../../../components/Loading';
 
 const Graph = ({ secondCity }) => {
+  const [ isLoading, setIsLoading ] = useState(true);
   const [dataPoints, setDataPoints] = useState([]);
   const [cityStats, setCityStats] = useState({
     guns: 0,
@@ -30,10 +32,15 @@ const Graph = ({ secondCity }) => {
     (async function() {
       setDataPoints(await formatData(await fetchGlobalSafety()));
       setCityStats(await fetchCitySafety(city.urbanScores));
+      setIsLoading(false);
     })();
   }, [chosenCity, comparison, secondCity]);
 
-  if (dataPoints.length) {
+  if (isLoading) {
+    return <GraphLoader />
+  }
+
+  else if (dataPoints.length) {
     return (
       <div className="graph">
         <p>
@@ -168,7 +175,7 @@ const Graph = ({ secondCity }) => {
     );
  
   }
-  return <div>Graph</div>;
+  return <div></div>;
 };
  
 export default Graph;

@@ -5,14 +5,17 @@ import { ChosenCityContext } from '../../services/context/ChosenCityContext';
 
 import {withRouter} from 'react-router-dom';
 import { getCityBySearchTerm } from '../../services/api/components/CityFromSearch';
+import { ListLoader } from '../Loading';
 
 const ContinentCityList = withRouter(({history}) => {
+    const [ isLoading, setIsLoading ] = useState(true)
     const [continentCities, setContinentCities] = useState([])
     const {setChosenCity} = useContext(ChosenCityContext);
 
     useEffect(() => {
         (async function() {
-            setContinentCities(await fetchCitiesWithContinent())
+            setContinentCities(await fetchCitiesWithContinent());
+            setIsLoading(false);
         })()
     }, [])
     
@@ -39,6 +42,10 @@ const ContinentCityList = withRouter(({history}) => {
     }
 
     return renderedContent;
+   }
+
+   if(isLoading) {
+       return <ListLoader />
    }
 
     return ( 

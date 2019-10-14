@@ -6,20 +6,27 @@ import { fetchLifeQualityScores } from '../../../../../services/api/components/c
 
 import GraphBar from './component/GraphBar';
 import { ComparisonContext } from '../../../../../services/context/ComparisonContext';
+import { ListLoader } from '../../../../../components/Loading';
 
 const LifeQuality = ({ secondCity }) => {
   const { chosenCity } = useContext(ChosenCityContext);
   const { comparison } = useContext(ComparisonContext);
+  const [isLoading, setIsLoading] = useState(true);
   const [scores, setScores] = useState([]);
 
   useEffect(() => {
     const city = secondCity ? comparison : chosenCity;
     (async function() {
       setScores(await fetchLifeQualityScores(city.urbanScores));
+      setIsLoading(false);
     })();
   }, [chosenCity, comparison, secondCity]);
 
-  if (scores.length) {
+
+  if (isLoading) {
+    return <ListLoader/>
+  }
+  else if (scores.length) {
     const bars = scores.map(x => (
       <GraphBar color={x.color} key={x.name} name={x.name} score={x.score} />
     ));
