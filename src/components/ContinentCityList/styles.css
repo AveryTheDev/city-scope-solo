@@ -1,0 +1,13 @@
+.continent_header {
+    color: #4F7590;
+    padding: .5rem;
+    margin: 0;
+    display: inline-block;
+}
+
+.continent_header:hover {
+    cursor: pointer;
+    background-color: rgb(89, 131, 160);
+    box-shadow: 1px 1px 2px #4F7590;
+    color: white;
+}

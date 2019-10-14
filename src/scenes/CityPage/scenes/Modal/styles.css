@@ -1,7 +1,12 @@
 .modal {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 3rem;
+}
+
+.modal--content {
+    display: flex;
+    padding: .5rem 3rem;
 }
 
 .modal-city {
@@ -12,6 +17,19 @@
 .modal-city:hover {
     background-color: rgb(128, 125, 125);
     cursor: pointer;
+}
+
+.modal--exit {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    cursor: pointer;
+}
+
+.modal--exit--btn {
+    color: white;
 }
 
 .modal-left > h1 {

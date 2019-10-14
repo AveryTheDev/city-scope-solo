@@ -2,8 +2,8 @@ import React from 'react';
 import './styles.css'
 
 import BrandImage from './scenes/BrandImage';
-import CityList from './scenes/CityList';
 import IntroText from './scenes/IntroText';
+import ContinentCityList from '../../components/ContinentCityList';
 
 const LandingPage = () => {
     return (
@@ -12,14 +12,14 @@ const LandingPage = () => {
           <BrandImage className="icon-panel" />
           <div className="client-panel">
             <IntroText />
-            <CityList />              
+            <ContinentCityList />             
           </div>
         </div>
         <div className="desktop">
           <BrandImage className="icon-panel" />
           <div className="client-panel">
             <IntroText />
-            <CityList />
+            <ContinentCityList />
           </div>
         </div>
       </>

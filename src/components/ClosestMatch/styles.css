@@ -1,0 +1,37 @@
+.closest-match{
+    height: 100vh;
+    width: 100vw;
+    background-color: #000000ad; 
+    color: white;
+    z-index: 5;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.closest-match__exit-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closest-match__exit {
+    cursor: pointer;
+    margin: 0;
+}
+
+.closest-match__container {
+    background-color: #000000e8;
+    padding: 3rem;
+}
+
+.closest-match--city {
+    font-size: 1.5rem;
+    color: rgb(131, 177, 209);
+}
+
+.hidden {
+    display: none;
+}

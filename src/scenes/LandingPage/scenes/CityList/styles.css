@@ -17,9 +17,12 @@
 
 .city-option {
     cursor: pointer;
+    display: inline-block;
+    padding: .5rem;
 }
 
 .city-option:hover {
-    background-color: #4F7591;
+    background-color: rgb(89, 131, 160);
+    box-shadow: 1px 1px 2px #4F7590;
     color: white;
 }

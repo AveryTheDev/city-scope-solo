@@ -10,7 +10,7 @@ const NavBar = () => {
     return ( 
         <div className="nav-bar">
             <div className="nav-icon-title">
-                <Link to="/landing" className="nav-img">
+                <Link to="/" className="nav-img">
                     <img src={cityIcon} alt='Back to Home'/> 
                     <h3>City Scope</h3>                                    
                 </Link>               

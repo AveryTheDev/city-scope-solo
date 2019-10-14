@@ -25,6 +25,15 @@
     padding: 20px;
 }
 
+.dropdown-item:hover {
+    cursor: pointer;
+    background-color: #777;
+}
+
+.dropdown-trigger:hover {
+    box-shadow: 5px 5px 10px rgba(15, 15, 15, 0.644);
+}
+
 .city-display {
     width: 60%;
     height: 100vh;
@@ -83,6 +92,12 @@
     color: white;
     font-family: 'Roboto', sans-serif;
     border: none;
+    cursor: pointer;
+}
+
+.compare-button-container > button:hover {
+    background-color: white;
+    color: rgb(12, 14, 19);
 }
 
 .inactive {

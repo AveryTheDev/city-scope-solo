@@ -27,35 +27,62 @@ export const fetchEducation = async urbanScores => {
       category => category.id.toUpperCase() === "EDUCATION"
     );
 
-    if(cityEducation === undefined) return;
+  if(cityEducation === undefined) return;
 
    else {
-        overallRanking = cityEducation.data.find(
-          x => x.id === "PISA-RANKING-TELESCORE"
-        );
-        meanMathValue = cityEducation.data.find(
-          x => x.id === "PISA-DETAIL-MATH-MEAN-SCORES"
-        );
-        meanReadingValue = cityEducation.data.find(
-          x => x.id === "PISA-DETAIL-READING-MEAN-SCORES"
-        );
-        meanScienceValue = cityEducation.data.find(
-          x => x.id === "PISA-DETAIL-SCIENCE-MEAN-SCORES"
-        );
-        
-        overallRanking = await statFormat(overallRanking.float_value * 100);
-        meanMathValue = await statFormat(meanMathValue.float_value);
-        meanReadingValue = await statFormat(meanReadingValue.float_value);
-        meanScienceValue = await statFormat(meanScienceValue.float_value);
 
-      return (
-        education = {
-            overallRanking,
-            meanMathValue,
-            meanReadingValue,
-            meanScienceValue
+        const checkForCorrectData = educationData => {
+            let eduData = educationData;
+
+            const dataIds = [
+              "PISA-RANKING-TELESCORE",
+              "PISA-DETAIL-MATH-MEAN-SCORES",
+              "PISA-DETAIL-READING-MEAN-SCORES",
+              "PISA-DETAIL-SCIENCE-MEAN-SCORES"
+            ];
+            
+            const filteredData = eduData.data.filter(x => dataIds.includes(x.id));
+
+            if(filteredData.length < 4) return false;
+            else { return true };
         }
-      );
+
+        if(checkForCorrectData(cityEducation)) {
+            overallRanking = cityEducation.data.find(
+              x => x.id === "PISA-RANKING-TELESCORE"
+            );
+
+            meanMathValue = cityEducation.data.find(
+              x => x.id === "PISA-DETAIL-MATH-MEAN-SCORES"
+            );
+
+            meanReadingValue = cityEducation.data.find(
+              x => x.id === "PISA-DETAIL-READING-MEAN-SCORES"
+            );
+
+            meanScienceValue = cityEducation.data.find(
+              x => x.id === "PISA-DETAIL-SCIENCE-MEAN-SCORES"
+            );
+
+            overallRanking = await statFormat(overallRanking.float_value * 100);
+            meanMathValue = await statFormat(meanMathValue.float_value);
+            meanReadingValue = await statFormat(meanReadingValue.float_value);
+            meanScienceValue = await statFormat(meanScienceValue.float_value);
+
+            
+          return (
+            education = {
+                overallRanking,
+                meanMathValue,
+                meanReadingValue,
+                meanScienceValue
+            }
+          );
+        }
+        
+        else {
+          return;
+        }
     }
   };
 

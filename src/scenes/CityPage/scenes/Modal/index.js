@@ -1,109 +1,126 @@
-import './styles.css';
+import "./styles.css";
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from "react";
 
-import { ChosenCityContext } from '../../../../services/context/ChosenCityContext';
-import { ComparisonContext } from '../../../../services/context/ComparisonContext';
+import { ChosenCityContext } from "../../../../services/context/ChosenCityContext";
+import { ComparisonContext } from "../../../../services/context/ComparisonContext";
 
-import { getCityBySearchTerm } from '../../../../services/api/components/CityFromSearch';
-import City from './City';
+import { getCityBySearchTerm } from "../../../../services/api/components/CityFromSearch";
+import City from "./City";
 
-import { withRouter } from 'react-router-dom';
-import { fetchCities } from '../../../../services/api/components/CityList';
+import { withRouter } from "react-router-dom";
+import { fetchCities } from "../../../../services/api/components/CityList";
 
-const Modal = withRouter(({history, secondCity}) => {
-    const [ term, setTerm ] = useState('');
-    const [cityOptions, setCityOptions] = useState([]);
+const Modal = withRouter(({ history, secondCity, hideModal }) => {
+  const [term, setTerm] = useState("");
+  const [cityOptions, setCityOptions] = useState([]);
 
-    const { chosenCity, setChosenCity } = useContext(ChosenCityContext);
-    const { comparison, setComparison } = useContext(ComparisonContext);
+  const { chosenCity, setChosenCity } = useContext(ChosenCityContext);
+  const { comparison, setComparison } = useContext(ComparisonContext);
 
-    useEffect(() => {
-      (async function() {
-        setCityOptions(await fetchCities());
-      })();
-    }, []);
+  useEffect(() => {
+    (async function() {
+      setCityOptions(await fetchCities());
+    })();
+  }, []);
 
-    const onInputChange = e => {
-        setTerm(e.target.value);
-    }
+  const onInputChange = e => {
+    setTerm(e.target.value);
+  };
 
-    const submitFirstCity = e => {
-        e.preventDefault();
+  const submitFirstCity = e => {
+    e.preventDefault();
 
-        const setCity = async term => {
-            setChosenCity(await getCityBySearchTerm(term));
-        }
-
-        setCity(term);
-
-        history.push('/comparison');
-    }
-
-    const submitSecondCity = e => {
-        e.preventDefault();
-
-        const setCity = async term => {
-            setComparison(await getCityBySearchTerm(term));
-        }
-
-        setCity(term);
-
-        history.push('/comparison');
-    }
-
-    const searchForFirstCity = term => {
-      const searchTerm = term;
-
-      const setCity = async searchTerm => {
-        setChosenCity(await getCityBySearchTerm(searchTerm));
-        history.push('/comparison');
-      };
-
-      setCity(searchTerm);
+    const setCity = async term => {
+      setChosenCity(await getCityBySearchTerm(term));
     };
 
-    const searchForSecondCity= term => {
-      const searchTerm = term;
+    setCity(term);
 
-      const setCity = async searchTerm => {
-        setComparison(await getCityBySearchTerm(searchTerm));
-        history.push('/comparison');
-      };
+    history.push("/comparison");
+  };
 
-      setCity(searchTerm);
+  const submitSecondCity = e => {
+    e.preventDefault();
+
+    const setCity = async term => {
+      setComparison(await getCityBySearchTerm(term));
     };
 
-    let list;
+    setCity(term);
 
-    if (cityOptions.length > 0 && secondCity) {
-      list = cityOptions.map((city, index) => (
-        <City city={city} key={index} searchByTerm={searchForFirstCity} />
-      ));
-    } else if (cityOptions.length > 0) {
-      list = cityOptions.map((city, index) => (
-        <City city={city} key={index} searchByTerm={searchForSecondCity} />
-      ));
-    }
-      
-    const city = secondCity ? comparison.cityName : chosenCity.cityName;
-    const action = secondCity ? submitFirstCity : submitSecondCity;
+    history.push("/comparison");
+  };
 
-    return (
-      <div className="modal">
-          <div className="modal-left">
-            <h1>Pick A City To Compare With {city}</h1>
-            <form onSubmit={action}>
+  const searchForFirstCity = term => {
+    const searchTerm = term;
+
+    const setCity = async searchTerm => {
+      setChosenCity(await getCityBySearchTerm(searchTerm));
+      history.push("/comparison");
+    };
+
+    setCity(searchTerm);
+  };
+
+  const searchForSecondCity = term => {
+    const searchTerm = term;
+
+    const setCity = async searchTerm => {
+      setComparison(await getCityBySearchTerm(searchTerm));
+      history.push("/comparison");
+    };
+
+    setCity(searchTerm);
+  };
+
+  let list;
+
+  if (cityOptions.length > 0 && secondCity) {
+    list = cityOptions.map((city, index) => (
+      <City
+        city={city}
+        key={index}
+        searchByTerm={searchForFirstCity}
+        hideModal={hideModal}
+      />
+    ));
+  } else if (cityOptions.length > 0) {
+    list = cityOptions.map((city, index) => (
+      <City
+        city={city}
+        key={index}
+        searchByTerm={searchForSecondCity}
+        hideModal={hideModal}
+      />
+    ));
+  }
+
+  const city = secondCity ? comparison.cityName : chosenCity.cityName;
+  const action = secondCity ? submitFirstCity : submitSecondCity;
+
+  return (
+    <div className="modal">
+      <div className="modal--exit">
+        <p className="modal--exit--btn" onClick={() => hideModal(false)}>
+          X
+        </p>
+      </div>
+      <div className="modal--content">
+        <div className="modal-left">
+          <h1>Pick A City To Compare With {city}</h1>
+          <form onSubmit={action}>
             <input
-                placeholder="Compare with..."
-                value={term}
-                onChange={onInputChange}
+              placeholder="Compare with..."
+              value={term}
+              onChange={onInputChange}
             />
-            </form>            
-          </div>
+          </form>
+        </div>
         <div className="options-list">{list}</div>
       </div>
-    );
-})
- 
+    </div>
+  );
+});
+
 export default Modal;

@@ -7,7 +7,8 @@ import CityDisplay from './scenes/CityDisplay';
 
 import './styles.css';
 import SearchBar from '../../components/Search';
-import CityList from '../LandingPage/scenes/CityList';
+import ContinentCityList from '../../components/ContinentCityList';
+import ClosestMatch from '../../components/ClosestMatch';
 
 const CityPage = () => {
 
@@ -17,6 +18,7 @@ const CityPage = () => {
         return ( 
             <> 
                 <div className="city-page desktop-city-page">
+                    <ClosestMatch />
                     <NavBar />
                     <div className="city-content">
                         <CityDisplay/>     
@@ -26,6 +28,7 @@ const CityPage = () => {
                     </div>
                 </div>
                 <div className="city-page mobile-city-page">
+                    <ClosestMatch />
                     <NavBar />
                     <div className="city-content">
                         <CityDisplay/>     
@@ -42,11 +45,15 @@ const CityPage = () => {
         <div>
             <NavBar />            
         <div className="no-results">
-            <h1>We Couldn't Find That In Our Database</h1>
-            <h2>Please Try Entering A New Search Term...</h2>
-            <SearchBar />
-            <h3>Or Choose From The List Of Cities Below</h3>
-            <CityList />
+            <h1>Sorry, We Couldn't Find That In Our Database</h1>
+            <div className="no-results__options">
+                <h2>Please Try Entering A New Search Term...</h2>
+                <SearchBar />
+                <h3>Or Choose From The List Of Cities Below</h3>           
+            </div>
+            <div className="no-results__continent-list">
+                <ContinentCityList />                
+            </div>
         </div>            
         </div>
 

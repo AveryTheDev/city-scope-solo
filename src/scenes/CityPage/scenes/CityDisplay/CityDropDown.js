@@ -84,7 +84,8 @@ const CityDropDown = ({ comparison }) => {
         </div>
       </div>
     );
-  } else {
+  } 
+  else {
 
     return (
       <div ref={cityButton} className="dropdown">

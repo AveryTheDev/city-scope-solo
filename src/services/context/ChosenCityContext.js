@@ -9,6 +9,8 @@ const ChosenCityContextProvider = props => {
         cityImage: '',
         cityName: '',
         coord: {}, 
+        match: false,
+        closestCity: '',
         inDatabase: false
     })
 

@@ -9,6 +9,8 @@ const ComparisonContextProvider =  props => {
     cityImage: "",
     cityName: "",
     coord: {},
+    match: false,
+    closestCity: '',
     inDatabase: false
   });
 

@@ -30,20 +30,22 @@ const CityDisplay = ({secondCity}) => {
             <div className="img-container">
               <img src={comparison.cityImage} alt={comparison.cityName} />
               <div className="menu-container">
-                <CityDropDown comparison={comparison}/>
+                <CityDropDown comparison={comparison} />
               </div>
             </div>
             <div className="when-mobile">
               <h1>The City of {comparison.cityName}</h1>
-              <div className="description-text">{ReactHtmlParser(description)}</div>
+              <div className="description-text">
+                {ReactHtmlParser(description)}
+              </div>
               <div className="compare-button-container">
                 <button onClick={() => setModal(!modal)}>Compare City</button>
               </div>
-              <div className={modal ? 'active' : 'inactive'}>
-                <Modal secondCity/>            
-              </div>              
+              <div className={modal ? "active" : "inactive"}>
+                <Modal hideModal={setModal} secondCity />
+              </div>
             </div>
-           </div>            
+          </div>
         </>
       );
   }
@@ -64,7 +66,7 @@ const CityDisplay = ({secondCity}) => {
             <button onClick={() => setModal(!modal)}>Compare City</button>
           </div>
           <div className={modal ? "active" : "inactive"}>
-            <Modal />
+            <Modal hideModal={setModal}/>
           </div>
         </div>
       </div>

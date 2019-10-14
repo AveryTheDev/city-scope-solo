@@ -7,6 +7,7 @@ import CityDisplay from '../CityPage/scenes/CityDisplay';
 import { ChosenCityContext } from '../../services/context/ChosenCityContext';
 import CityPage from '../CityPage';
 import { ComparisonContext } from '../../services/context/ComparisonContext';
+import ClosestMatch from '../../components/ClosestMatch';
 
 
 const ComparisonPage = () => {
@@ -14,11 +15,12 @@ const ComparisonPage = () => {
   const { chosenCity } = useContext(ChosenCityContext);
   const { comparison } = useContext(ComparisonContext)
 
-  if (chosenCity.cityName === "N/A" || comparison.cityName === "N/A") return <CityPage />;
+  if ( comparison.geoname_id === 0 || chosenCity.geoname_id === 0 ) return <CityPage />;
 
     return (
       <>
         <div className="compare-desktop">
+          <ClosestMatch secondCity/>
           <NavBar />
           <div className="comparison-container">
             <div className="first-city">
