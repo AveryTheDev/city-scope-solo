@@ -47,7 +47,7 @@ const Graph = ({ secondCity }) => {
           Guns per 100 Residents: <span>{cityStats.guns}</span>
         </p>
         <p>
-          Deaths per 100,000 Residents: <span>{cityStats.deaths}</span>
+          Gun-Related Deaths per 100,000 Residents: <span>{cityStats.deaths}</span>
         </p>
         <h2>Compared To...</h2>
         <VictoryChart
