@@ -29,6 +29,14 @@ export const getCityBySearchTerm = async city => {
 
             const cityResults = await fromCityId(id);
 
+            if(id === '1650527') {
+                return {
+                    geoname: id,
+                    urban_area: '',
+                    match: true
+                }
+            }
+
             const urban_area = cityResults.data["_links"]["city:urban_area"]["name"];
             const city_returned = cityResults.data["name"];
 
