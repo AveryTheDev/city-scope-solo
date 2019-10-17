@@ -38,3 +38,10 @@
 .job {
     font-family: "Oswald", sans-serif;
 }
+
+.job:hover {
+    background-color: #4F7590;
+    color: white;
+    cursor: pointer;
+    padding: .25rem;
+}
