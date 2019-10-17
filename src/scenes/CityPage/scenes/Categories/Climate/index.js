@@ -9,56 +9,63 @@ import { ComparisonContext } from '../../../../../services/context/ComparisonCon
 
 const Climate = ({ secondCity }) => {
   const { chosenCity } = useContext(ChosenCityContext);
-  const {comparison} = useContext(ComparisonContext);
-  const [climate, setClimate] = useState({
+  const { comparison } = useContext(ComparisonContext);
+  const [ loadedTemp, setLoadedTemp ] = useState({
+    avgHigh: '',
+    avgLow: ''
+  })
+  const [ loadAsFahren, setLoadAsFahren ] = useState(false);
+  const [ climate, setClimate ] = useState({
     climateType: "",
     avgHigh: "",
     avgLow: "",
     success: false
   });
-  const [scale, setScale] = useState("C°");
+  const [ scale, setScale ] = useState("C°");
+
+  const toFahrenheit = temp => {
+        setScale("F°");
+        let convertedTemp = ((temp * 9) / 5 + 32).toPrecision(2);
+        return convertedTemp;
+      };
 
   useEffect(() => {
     const city = secondCity ? comparison : chosenCity;
+
+    const handleImport = async (results) => {
+        setLoadedTemp({
+          avgHigh: results.avgHigh,
+          avgLow: results.avgLow
+        });
+
+      if(loadAsFahren) {
+        return setClimate({...climate, avgHigh: toFahrenheit(results.avgHigh), avgLow: toFahrenheit(results.avgLow)})
+      }
+      else {
+        return setClimate(results);
+      }
+    }
+
     (async function() {
-      setClimate(await getClimate(city.urbanScores));
+      await handleImport(await getClimate(city.urbanScores));
     })();
-  }, [chosenCity, comparison, secondCity]);
+  }, [chosenCity, comparison, secondCity, climate, loadAsFahren]);
 
+  
   const setMetric = (scale, avgHigh, avgLow) => {
-    let system = scale;
-    let high = parseFloat(avgHigh);
-    let low = parseFloat(avgLow);
 
-    const toFahrenheit = temp => {
-      setScale("F°");
-      let convertedTemp = ((temp * 9) / 5 + 32).toPrecision(2);
-      return convertedTemp;
-    };
-
-    const toCelsius = temp => {
-      setScale("C°");
-      let convertedTemp = (((temp - 32) * 5) / 9).toPrecision(2);
-      return convertedTemp;
-    };
-
-    if (system === "C°") {
-      high = toFahrenheit(high);
-      low = toFahrenheit(low);
-
+    if(loadAsFahren) {
+      setScale("C°")
+      setLoadAsFahren(false);
+      return setClimate({...climate, avgHigh: avgHigh, avgLow: avgLow});
+    }
+    else {
+      setLoadedTemp({avgHigh: avgHigh, avgLow: avgLow});
+      setLoadAsFahren(true);
       return setClimate({
         ...climate,
-        avgHigh: high,
-        avgLow: low
-      });
-    } else {
-      high = toCelsius(high);
-      low = toCelsius(low);
-
-      return setClimate({
-        ...climate,
-        avgHigh: high,
-        avgLow: low
+        avgHigh: toFahrenheit(avgHigh),
+        avgLow: toFahrenheit(avgLow)
       });
     }
   };
