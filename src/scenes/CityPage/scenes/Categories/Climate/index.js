@@ -52,7 +52,7 @@ const Climate = ({ secondCity }) => {
   }, [chosenCity, comparison, secondCity, climate, loadAsFahren]);
 
   
-  const setMetric = (scale, avgHigh, avgLow) => {
+  const setMetric = (avgHigh, avgLow) => {
 
     if(loadAsFahren) {
       setScale("C°")
