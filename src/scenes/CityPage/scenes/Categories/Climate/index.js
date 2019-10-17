@@ -78,7 +78,7 @@ const Climate = ({ secondCity }) => {
           <button
             className="metric-button"
             onClick={() => {
-              setMetric(scale, climate.avgHigh, climate.avgLow);
+              setMetric(climate.avgHigh, climate.avgLow);
             }}
           >
             Scale: {scale}
