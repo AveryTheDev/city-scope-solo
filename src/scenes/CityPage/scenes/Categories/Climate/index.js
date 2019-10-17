@@ -24,7 +24,6 @@ const Climate = ({ secondCity }) => {
   const [ scale, setScale ] = useState("C°");
 
   const toFahrenheit = temp => {
-        setScale("F°");
         let convertedTemp = ((temp * 9) / 5 + 32).toPrecision(2);
         return convertedTemp;
       };
@@ -55,13 +54,13 @@ const Climate = ({ secondCity }) => {
   const setMetric = (avgHigh, avgLow) => {
 
     if(loadAsFahren) {
-      setScale("C°")
       setLoadAsFahren(false);
-      return setClimate({...climate, avgHigh: avgHigh, avgLow: avgLow});
+      setScale("C°");
+      return setClimate({...climate, avgHigh: loadedTemp.avgHigh, avgLow: loadedTemp.avgLow});
     }
     else {
-      setLoadedTemp({avgHigh: avgHigh, avgLow: avgLow});
       setLoadAsFahren(true);
+      setScale("F°");
       return setClimate({
         ...climate,
         avgHigh: toFahrenheit(avgHigh),
