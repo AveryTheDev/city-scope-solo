@@ -10,12 +10,18 @@ Changes To This App Include
 - a complete visual redesign throughout the entire app as well as all SVGs within the app created by myself via Figma
 - refined redirection to cities close to user's search with a dismissable modal explaining the Teleport City's API decision to display this geographically close alternative
 
-![Current Site Design](src/assets/currentDesign.png)
+
 Current Design
-![Previous Site Design](src/assets/previousDesign.png)
+![Current Site Design](src/assets/currentDesign.png)
+
+
 Previous Design
-![Image of City Icons](/src/assets/CityScopeIcons.png)
+![Previous Site Design](src/assets/previousDesign.png)
+
+
 SVGs created for use in site
+![Image of City Icons](/src/assets/CityScopeIcons.png)
+
 
 - clickable lists of all of the cities that Teleport has information on with some organized by continents
 - a new failed search page that provides the clickable list for an easier transition to a valid city page
