@@ -7,7 +7,8 @@ This is a completely independently coded version of the group project that I led
 
 Changes To This App Include
 - Complete rewrite of the code with React Hooks and Context API
-- a complete redesign throughout the entire app as well as all SVGs within the app created by myself via Figma
+- a complete visual redesign throughout the entire app as well as all SVGs within the app created by myself via Figma
+- refined redirection to cities close to user's search with a dismissable modal explaining the Teleport City's API decision to display this geographically close alternative
 
 ![Current Site Design](src/assets/currentDesign.png)
 Current Design
@@ -16,10 +17,10 @@ Previous Design
 ![Image of City Icons](/src/assets/CityScopeIcons.png)
 SVGs created for use in site
 
-- a clickable list of all of the cities that Teleport has information on
+- clickable lists of all of the cities that Teleport has information on with some organized by continents
 - a new failed search page that provides the clickable list for an easier transition to a valid city page
 - a comparison page that allows two cities' information to be compared side by side by the user that is 
-  responsive to viewport sizes
+  responsive to viewport sizes - making it only available on desktop and tablet devices
 
 ## Retained Features
 
