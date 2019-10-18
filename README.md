@@ -9,7 +9,12 @@ Changes To This App Include
 - Complete rewrite of the code with React Hooks and Context API
 - a complete redesign throughout the entire app as well as all SVGs within the app created by myself via Figma
 
+![Current Site Design](src/assets/currentDesign.png)
+Current Design
+![Previous Site Design](src/assets/previousDesign.png)
+Previous Design
 ![Image of City Icons](/src/assets/CityScopeIcons.png)
+SVGs created for use in site
 
 - a clickable list of all of the cities that Teleport has information on
 - a new failed search page that provides the clickable list for an easier transition to a valid city page
