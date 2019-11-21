@@ -41,7 +41,7 @@ const CityDisplay = ({secondCity}) => {
               <div className="compare-button-container">
                 <button onClick={() => setModal(!modal)}>Compare City</button>
               </div>
-              <div className={modal ? "active" : "inactive"}>
+              <div className={modal ? "visible" : "invisible"}>
                 <Modal hideModal={setModal} secondCity />
               </div>
             </div>
@@ -65,7 +65,7 @@ const CityDisplay = ({secondCity}) => {
           <div className="compare-button-container">
             <button onClick={() => setModal(!modal)}>Compare City</button>
           </div>
-          <div className={modal ? "active" : "inactive"}>
+          <div className={modal ? "visible" : "invisible"}>
             <Modal hideModal={setModal}/>
           </div>
         </div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import './styles.css';
-import cityOnGlobe from '../../../../assets/CityOnGlobe.svg';
+import CityOnGlobe from '../../../../assets/CityOnGlobe.js';
 
 
 const BrandImage = () => {
+
     return ( 
         <div className="background">
-            <img src={cityOnGlobe} alt="globe figure" />
+            <CityOnGlobe/>
             <h1 className="mobile-only">City Scope</h1>
         </div>
      );
