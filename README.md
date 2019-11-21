@@ -11,15 +11,15 @@ Changes To This App Include
 - refined redirection to cities close to user's search with a dismissable modal explaining the Teleport City's API decision to display this geographically close alternative
 
 
-Current Design
+**Current Design**
 ![Current Site Design](src/assets/currentDesign.png)
 
 
-Previous Design
+**Previous Design**
 ![Previous Site Design](src/assets/previousDesign.png)
 
 
-SVGs created for use in site
+**SVGs created for use in site**
 ![Image of City Icons](/src/assets/CityScopeIcons.png)
 
 
