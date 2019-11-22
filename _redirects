@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "https://festive-kepler-8fb40f.netlify.com/"
+  from = "https://festive-kepler-8fb40f.netlify.com"
   to = "https://city-scope-solo.netlify.com"
   status = 301
   force = true
