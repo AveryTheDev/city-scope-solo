@@ -1,35 +1,40 @@
 .client-panel {
-    height: 90vh;
-    padding: 3rem;
-    width: 60%;
+  height: 90vh;
+  padding: 3rem;
+  width: 60%;
 }
 
 @media screen and (max-width: 649px) {
-    .desktop {
-        display: none;
-    }
+  .desktop {
+    display: none;
+  }
 
-    .client-panel {
-        width: auto;
-        padding: 1.5rem 3rem 2rem 3rem;
-        margin-top: -1rem;
-    }
+  .mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .client-panel {
+    width: auto;
+    padding: 1.5rem 3rem 2rem 3rem;
+    margin-top: -1rem;
+  }
 }
 
 @media (min-width: 649px) {
-    .mobile {
-        display: none;
-    }
+  .mobile {
+    display: none;
+  }
 
-    .desktop {
-        display: flex;
-    }
+  .desktop {
+    display: flex;
+  }
 
-    .icon-panel {
-        position: fixed;
-    }
+  .icon-panel {
+    position: fixed;
+  }
 
-    .client-panel {
-        overflow-y: scroll;
-    }
+  .client-panel {
+    overflow-y: scroll;
+  }
 }
