@@ -1,64 +1,71 @@
-import './styles.css';
-import cold from '../../../../../assets/Cold.svg';
-import warm from '../../../../../assets/Warm.svg';
+import "./styles.css";
+import cold from "../../../../../assets/Cold.svg";
+import warm from "../../../../../assets/Warm.svg";
 
-import React, { useState, useEffect, useContext } from 'react';
-import { ChosenCityContext } from '../../../../../services/context/ChosenCityContext';
-import { getClimate } from '../../../../../services/api/components/categories/Climate';
-import { ComparisonContext } from '../../../../../services/context/ComparisonContext';
+import React, { useState, useEffect, useContext } from "react";
+import { ChosenCityContext } from "../../../../../services/context/ChosenCityContext";
+import { getClimate } from "../../../../../services/api/components/categories/Climate";
+import { ComparisonContext } from "../../../../../services/context/ComparisonContext";
 
 const Climate = ({ secondCity }) => {
   const { chosenCity } = useContext(ChosenCityContext);
   const { comparison } = useContext(ComparisonContext);
-  const [ loadedTemp, setLoadedTemp ] = useState({
-    avgHigh: '',
-    avgLow: ''
-  })
-  const [ loadAsFahren, setLoadAsFahren ] = useState(false);
-  const [ climate, setClimate ] = useState({
+
+  const [loadedTemp, setLoadedTemp] = useState({
+    avgHigh: "",
+    avgLow: ""
+  });
+  const [loadAsFahren, setLoadAsFahren] = useState(false);
+  const [climate, setClimate] = useState({
     climateType: "",
     avgHigh: "",
     avgLow: "",
     success: false
   });
-  const [ scale, setScale ] = useState("C°");
+  const [scale, setScale] = useState("C°");
 
+  // placed here due to useEffect's dependency on function
   const toFahrenheit = temp => {
-        let convertedTemp = ((temp * 9) / 5 + 32).toPrecision(2);
-        return convertedTemp;
-      };
+    let convertedTemp = ((temp * 9) / 5 + 32).toPrecision(2);
+    return convertedTemp;
+  };
 
   useEffect(() => {
+    console.log("climate");
     const city = secondCity ? comparison : chosenCity;
+    // determines whether the scale should be changed and thus the climate value as well
+    const determineScale = async results => {
+      setLoadedTemp({
+        avgHigh: results.avgHigh,
+        avgLow: results.avgLow
+      });
 
-    const handleImport = async (results) => {
-        setLoadedTemp({
-          avgHigh: results.avgHigh,
-          avgLow: results.avgLow
-        });
-
-      if(loadAsFahren) {
-        return setClimate({...climate, avgHigh: toFahrenheit(results.avgHigh), avgLow: toFahrenheit(results.avgLow)})
-      }
-      else {
+      if (loadAsFahren) {
+        return setClimate(climate => ({
+          ...climate,
+          avgHigh: toFahrenheit(results.avgHigh),
+          avgLow: toFahrenheit(results.avgLow)
+        }));
+      } else {
         return setClimate(results);
       }
-    }
+    };
 
     (async function() {
-      await handleImport(await getClimate(city.urbanScores));
+      await determineScale(await getClimate(city.urbanScores));
     })();
-  }, [chosenCity, comparison, secondCity, climate, loadAsFahren]);
+  }, [chosenCity, comparison, secondCity, loadAsFahren]);
 
-  
   const setMetric = (avgHigh, avgLow) => {
-
-    if(loadAsFahren) {
+    if (loadAsFahren) {
       setLoadAsFahren(false);
       setScale("C°");
-      return setClimate({...climate, avgHigh: loadedTemp.avgHigh, avgLow: loadedTemp.avgLow});
-    }
-    else {
+      return setClimate({
+        ...climate,
+        avgHigh: loadedTemp.avgHigh,
+        avgLow: loadedTemp.avgLow
+      });
+    } else {
       setLoadAsFahren(true);
       setScale("F°");
       return setClimate({
@@ -102,5 +109,5 @@ const Climate = ({ secondCity }) => {
 
   return <div></div>;
 };
- 
+
 export default Climate;
