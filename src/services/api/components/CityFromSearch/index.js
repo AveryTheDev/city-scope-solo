@@ -111,7 +111,8 @@ export const getCityBySearchTerm = async city => {
     let refinedSearchTerm = searchTerm.toLowerCase().replace(/ /g, "%20");
     if (
       refinedSearchTerm.includes("minneapolis-saint") ||
-      refinedSearchTerm.includes("minneapolis")
+      refinedSearchTerm.includes("minneapolis") ||
+      refinedSearchTerm.includes("saint%20paul")
     ) {
       return await cityMatchCheck((geoname_id = 5045360));
     }
